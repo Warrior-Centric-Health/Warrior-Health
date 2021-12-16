@@ -1,0 +1,11 @@
+{
+	"name": "LS_KV_WCH_DEV_DB",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://KV-WCH-DEV-DB.vault.azure.net/"
+		}
+	}
+}
