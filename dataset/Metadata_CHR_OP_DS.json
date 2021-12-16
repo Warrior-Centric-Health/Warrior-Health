@@ -1,0 +1,17 @@
+{
+	"name": "Metadata_CHR_OP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "M_CHR"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

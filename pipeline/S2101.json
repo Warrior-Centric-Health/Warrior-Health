@@ -1,0 +1,614 @@
+{
+	"name": "S2101",
+	"properties": {
+		"activities": [
+			{
+				"name": "S2101_Dataload",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFolderPath": "Files/S2101/Year/2019",
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "GEO_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GEO_ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C01_001E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " CPO18_All ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C01_007E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " CPO18_Male ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C01_008E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " CPO18_Female ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_001E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_O18 ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_002E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_GWII_POS_O18 ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_003E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_POS_GWI ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_004E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_POS_VE ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_005E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_POS_KE ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_006E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_POS_WWII ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_007E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_SEX_MALE ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_008E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_SEX_FEMALE ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_009E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_AGE_18TO34 ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_010E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_AGE_35TO54 ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_011E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_AGE_55TO64",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_012E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_AGE_65TO74",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_013E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_AGE_O75 ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_014E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_WHITEALONE ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_015E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_BA ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_016E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_AIAN ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_017E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_ASIAN ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_018E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_NHOPI ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_019E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_SOR ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_020E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_TWO_OR_MORE ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_021E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_HL ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_022E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " TV_018_RACE_HL_WHITEA_NOT_HORL ",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C04_001E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " PERCENT_VETERANS_OF_TOTALPOP ",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 5
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C04_007E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " PERCENT_VETERANS_OF_SEX_MALE ",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 5
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C04_008E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": " PERCENT_VETERANS_OF_SEX_FEMALE ",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 5
+								}
+							},
+							{
+								"source": {
+									"name": "State",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "County",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Tract",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tract",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_Year",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "S2101_Year",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "S2101_IP_DS",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "S2101_OP_DS",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Success Log",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "S2101_Dataload",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[Usp_audit_Log]",
+					"storedProcedureParameters": {
+						"adfName": {
+							"value": {
+								"value": "@pipeline().DataFactory",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Errors": {
+							"value": null,
+							"type": "String"
+						},
+						"ExecDate": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"PipelineName": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"RowCopied": {
+							"value": {
+								"value": "@activity('S2101_Dataload').output.rowsRead",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"RowRead": {
+							"value": {
+								"value": "@activity('S2101_Dataload').output.rowsCopied",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"runid": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Source": {
+							"value": null,
+							"type": "String"
+						},
+						"Target": {
+							"value": null,
+							"type": "String"
+						},
+						"throughPut": {
+							"value": {
+								"value": "@activity('S2101_Dataload').output.throughPut",
+								"type": "Expression"
+							},
+							"type": "Decimal"
+						},
+						"triggerName": {
+							"value": {
+								"value": "@pipeline().TriggerName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"triggerTime": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Cencus_Output_Ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "SendEmail",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "S2101_Dataload",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+					"method": "POST",
+					"body": {
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('S2101_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "USCB"
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-12-06T09:24:50Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

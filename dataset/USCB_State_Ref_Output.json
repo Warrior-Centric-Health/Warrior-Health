@@ -1,0 +1,17 @@
+{
+	"name": "USCB_State_Ref_Output",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "State_Ref"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

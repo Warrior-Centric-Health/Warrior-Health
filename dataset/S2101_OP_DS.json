@@ -1,0 +1,17 @@
+{
+	"name": "S2101_OP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AL_S2101"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

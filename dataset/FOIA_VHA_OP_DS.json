@@ -1,0 +1,17 @@
+{
+	"name": "FOIA_VHA_OP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AL_FOIA_VHA"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,141 @@
+{
+	"name": "DMDC_IP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "DMDC_Region_2019.csv",
+				"folderPath": "Files/DMDC/Year/2019",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "HHS Regions",
+				"type": "String"
+			},
+			{
+				"name": "AHA Regions",
+				"type": "String"
+			},
+			{
+				"name": "TRICARE Regions",
+				"type": "String"
+			},
+			{
+				"name": "VIZIENT Regions",
+				"type": "String"
+			},
+			{
+				"name": "USCB",
+				"type": "String"
+			},
+			{
+				"name": "CCN Regions",
+				"type": "String"
+			},
+			{
+				"name": "Sort",
+				"type": "String"
+			},
+			{
+				"name": "Abbrv",
+				"type": "String"
+			},
+			{
+				"name": "State",
+				"type": "String"
+			},
+			{
+				"name": " AD-Army ",
+				"type": "String"
+			},
+			{
+				"name": " AD-Navy ",
+				"type": "String"
+			},
+			{
+				"name": " AD-Marine Corps ",
+				"type": "String"
+			},
+			{
+				"name": " AD-Air Force ",
+				"type": "String"
+			},
+			{
+				"name": " AD-Coast Guard ",
+				"type": "String"
+			},
+			{
+				"name": " AD-Space Force ",
+				"type": "String"
+			},
+			{
+				"name": " Active Duty - TOTAL ",
+				"type": "String"
+			},
+			{
+				"name": "Army NG",
+				"type": "String"
+			},
+			{
+				"name": "Army Res",
+				"type": "String"
+			},
+			{
+				"name": "Navy Res",
+				"type": "String"
+			},
+			{
+				"name": "USMC Res",
+				"type": "String"
+			},
+			{
+				"name": "Air Force NG",
+				"type": "String"
+			},
+			{
+				"name": "Air Force Res",
+				"type": "String"
+			},
+			{
+				"name": "Coast Guard Res",
+				"type": "String"
+			},
+			{
+				"name": "Space Force Res",
+				"type": "String"
+			},
+			{
+				"name": "National Guard - TOTAL",
+				"type": "String"
+			},
+			{
+				"name": " Reserves - TOTAL ",
+				"type": "String"
+			},
+			{
+				"name": "Natl Guard & Reserves - TOTAL",
+				"type": "String"
+			},
+			{
+				"name": "TOTAL Force",
+				"type": "String"
+			},
+			{
+				"name": "Year",
+				"type": "String"
+			}
+		]
+	}
+}

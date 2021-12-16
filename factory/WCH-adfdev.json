@@ -1,0 +1,9 @@
+{
+	"name": "WCH-adfdev",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a858c8f4-f67c-488b-bc1d-456746398ec5",
+		"tenantId": "2a00866d-cdf9-4bc6-999a-3503317e348e"
+	}
+}
