@@ -20,6 +20,14 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
 							"wildcardFolderPath": "Files/B21100/Year/2019",
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
@@ -33,6 +41,20 @@
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": true
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "Cencus_Blob_Input_Ls",
+								"type": "LinkedServiceReference"
+							},
+							"path": "cencus"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
