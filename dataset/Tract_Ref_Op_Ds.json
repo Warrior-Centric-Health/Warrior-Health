@@ -1,0 +1,17 @@
+{
+	"name": "Tract_Ref_Op_Ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Country_State_County_Tract_Ref"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

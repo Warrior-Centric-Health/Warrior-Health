@@ -1,0 +1,38 @@
+{
+	"name": "Metadata_GDX_OP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "Required Column Names(RAW)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Meta Data",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Display Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Friendly Column Names(Data)- PROCESSED",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Friendly Column Names(Report)",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "M_GDX"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
