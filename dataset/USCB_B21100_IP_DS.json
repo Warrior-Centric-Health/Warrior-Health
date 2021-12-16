@@ -1,0 +1,74 @@
+{
+	"name": "USCB_B21100_IP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "USCB_B21100_Zipcode.csv",
+				"folderPath": "Files/USPS_ZIP CODE/YEAR/2019",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"encodingName": "UTF-8",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "String"
+			},
+			{
+				"name": "NAME",
+				"type": "String"
+			},
+			{
+				"name": "B21100_002E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_003E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_004E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_005E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_006E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_007E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_008E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_009E",
+				"type": "String"
+			},
+			{
+				"name": "state",
+				"type": "String"
+			},
+			{
+				"name": "zip code tabulation area",
+				"type": "String"
+			}
+		]
+	}
+}

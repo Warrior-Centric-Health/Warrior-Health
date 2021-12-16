@@ -1,0 +1,75 @@
+{
+	"name": "USCB_B21100_OP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GEOGRAPHIC_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "B21100_002E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "B21100_003E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "B21100_004E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "B21100_005E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "B21100_006E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "B21100_007E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "B21100_008E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "B21100_009E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "STATE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ZIPCODE_TABULATION_AREA",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AL_USCB_B21100_Zipcode"
+		}
+	}
+}
