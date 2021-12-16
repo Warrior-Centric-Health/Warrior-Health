@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "WCH-ADF-DEV"
+		},
+		"AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName": {
+			"value": "DEV-BLOB-Connect"
+		},
+		"AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName": {
+			"value": "DEV-BLOB-Connect"
+		},
+		"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
+			"value": "KV-BLOB-SAS-SECRET"
+		},
+		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
+			"value": "SEC-DEV-DB"
+		},
+		"Incr_Test_properties_typeProperties_connectionString_secretName": {
+			"value": "DEV-BLOB-Connect"
+		},
+		"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
+			"value": "KV-BLOB-SAS-SECRET"
+		},
+		"LS_KV_BLOB_properties_typeProperties_baseUrl": {
+			"value": "https://KV-DEVBLOB.vault.azure.net/"
+		},
+		"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
+			"value": "https://KV-DEV-BLOB-SAS.vault.azure.net/"
+		},
+		"LS_KV_DB_properties_typeProperties_baseUrl": {
+			"value": "https://KV-DEV-DB.vault.azure.net/"
+		},
+		"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
+			"value": "https://KV-WCH-DEV-DB.vault.azure.net/"
+		},
+		"LS_WCH_DEV_properties_typeProperties_connectionString_secretName": {
+			"value": "KV-WCH-DEV-SECREATE"
+		},
+		"new_trig_properties_typeProperties_scope": {
+			"value": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/WCH_Dev/providers/Microsoft.Storage/storageAccounts/storagefortestdemo"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

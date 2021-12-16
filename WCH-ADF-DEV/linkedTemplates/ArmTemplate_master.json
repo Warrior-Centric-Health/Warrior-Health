@@ -1,0 +1,206 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "WCH-ADF-DEV"
+		},
+		"AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "DEV-BLOB-Connect"
+		},
+		"AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "DEV-BLOB-Connect"
+		},
+		"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
+			"type": "string",
+			"defaultValue": "KV-BLOB-SAS-SECRET"
+		},
+		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "SEC-DEV-DB"
+		},
+		"Incr_Test_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "DEV-BLOB-Connect"
+		},
+		"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
+			"type": "string",
+			"defaultValue": "KV-BLOB-SAS-SECRET"
+		},
+		"LS_KV_BLOB_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://KV-DEVBLOB.vault.azure.net/"
+		},
+		"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://KV-DEV-BLOB-SAS.vault.azure.net/"
+		},
+		"LS_KV_DB_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://KV-DEV-DB.vault.azure.net/"
+		},
+		"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://KV-WCH-DEV-DB.vault.azure.net/"
+		},
+		"LS_WCH_DEV_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "KV-WCH-DEV-SECREATE"
+		},
+		"new_trig_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/WCH_Dev/providers/Microsoft.Storage/storageAccounts/storagefortestdemo"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "WCH-ADF-DEV_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_KV_BLOB_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_KV_BLOB_properties_typeProperties_baseUrl')]"
+					},
+					"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_KV_BLOB_SAS_properties_typeProperties_baseUrl')]"
+					},
+					"LS_KV_DB_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_KV_DB_properties_typeProperties_baseUrl')]"
+					},
+					"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
+						"value": "[parameters('LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl')]"
+					},
+					"new_trig_properties_typeProperties_scope": {
+						"value": "[parameters('new_trig_properties_typeProperties_scope')]"
+					},
+					"AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName')]"
+					},
+					"AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName')]"
+					},
+					"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
+						"value": "[parameters('Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName')]"
+					},
+					"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('Cencus_Output_Ls_properties_typeProperties_connectionString_secretName')]"
+					},
+					"Incr_Test_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('Incr_Test_properties_typeProperties_connectionString_secretName')]"
+					},
+					"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
+						"value": "[parameters('LS_BLOB_SAS_properties_typeProperties_sasUri_secretName')]"
+					},
+					"LS_WCH_DEV_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('LS_WCH_DEV_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "WCH-ADF-DEV_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'WCH-ADF-DEV_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "WCH-ADF-DEV_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'WCH-ADF-DEV_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "WCH-ADF-DEV_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'WCH-ADF-DEV_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "WCH-ADF-DEV_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'WCH-ADF-DEV_ArmTemplate_3')]"
+			]
+		}
+	]
+}
