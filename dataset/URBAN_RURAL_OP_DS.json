@@ -1,0 +1,51 @@
+{
+	"name": "URBAN_RURAL_OP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "STATE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "COUNTY",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "STATENAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "COUNTYNAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PER_UW",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PER_RW",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "URBAN_RURAL"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
