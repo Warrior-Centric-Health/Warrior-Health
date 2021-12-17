@@ -2466,7 +2466,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -2516,7 +2516,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DMDC_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/DMDC_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
