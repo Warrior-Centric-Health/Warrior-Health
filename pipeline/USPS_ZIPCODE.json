@@ -27,7 +27,8 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlDWSink",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"logSettings": {
@@ -49,7 +50,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Zip",
+									"name": "zip",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -61,7 +62,7 @@
 							},
 							{
 								"source": {
-									"name": "Type",
+									"name": "type",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -73,7 +74,7 @@
 							},
 							{
 								"source": {
-									"name": "Decommissioned",
+									"name": "decommissioned",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -85,7 +86,7 @@
 							},
 							{
 								"source": {
-									"name": "Primary_City",
+									"name": "primary_city",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -97,7 +98,7 @@
 							},
 							{
 								"source": {
-									"name": "State",
+									"name": "state",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -109,7 +110,7 @@
 							},
 							{
 								"source": {
-									"name": "County",
+									"name": "county",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -121,7 +122,7 @@
 							},
 							{
 								"source": {
-									"name": "Timezone",
+									"name": "timezone",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -133,7 +134,7 @@
 							},
 							{
 								"source": {
-									"name": "Area_Codes",
+									"name": "area_codes",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -145,7 +146,7 @@
 							},
 							{
 								"source": {
-									"name": "Country",
+									"name": "country",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -157,7 +158,7 @@
 							},
 							{
 								"source": {
-									"name": "Approximate_Latitude",
+									"name": "approximate_latitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -171,7 +172,7 @@
 							},
 							{
 								"source": {
-									"name": "Approximate_Longitude",
+									"name": "approximate_longitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -185,7 +186,7 @@
 							},
 							{
 								"source": {
-									"name": "Polygon_Offset_Latitude",
+									"name": "polygon_offset_latitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -199,7 +200,7 @@
 							},
 							{
 								"source": {
-									"name": "Polygon_Offset_Longitude",
+									"name": "polygon_offset_longitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -213,7 +214,7 @@
 							},
 							{
 								"source": {
-									"name": "Internal_Point_Latitude",
+									"name": "internal_point_latitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -227,7 +228,7 @@
 							},
 							{
 								"source": {
-									"name": "Internal_Point_Longitude",
+									"name": "internal_point_longitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -241,7 +242,7 @@
 							},
 							{
 								"source": {
-									"name": "Latitude_Min",
+									"name": "latitude_min",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -255,7 +256,7 @@
 							},
 							{
 								"source": {
-									"name": "Latitude_Max",
+									"name": "latitude_max",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -269,7 +270,7 @@
 							},
 							{
 								"source": {
-									"name": "Longitude_Min",
+									"name": "longitude_min",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -283,7 +284,7 @@
 							},
 							{
 								"source": {
-									"name": "Longitude_Max",
+									"name": "longitude_max",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -428,7 +429,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "Cencus_Output_Ls",
+					"referenceName": "LS_WCH_DEV",
 					"type": "LinkedServiceReference"
 				}
 			},
