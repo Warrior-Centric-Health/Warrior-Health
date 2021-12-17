@@ -228,7 +228,7 @@
 							},
 							{
 								"source": {
-									"name": "State",
+									"name": "State Name",
 									"type": "String",
 									"physicalType": "String"
 								},
