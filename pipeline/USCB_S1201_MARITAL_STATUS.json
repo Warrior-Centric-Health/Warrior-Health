@@ -152,6 +152,14 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
 							"wildcardFolderPath": "Files/USCB_S1201-MARTIAL STATUS",
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
