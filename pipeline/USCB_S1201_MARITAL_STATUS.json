@@ -175,6 +175,156 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "GEO_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GEO_ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "S1201_C02_002E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TMV_PER_MAR",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 18
+								}
+							},
+							{
+								"source": {
+									"name": "S1201_C02_009E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TFV_PER_MAR",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 18
+								}
+							},
+							{
+								"source": {
+									"name": "State Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Code",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "State Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "County Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County_Code",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "County Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Tract Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tract_Code",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Tract Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tract_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "File Source Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FileSourceName",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Year",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Year",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
