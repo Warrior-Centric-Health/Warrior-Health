@@ -1,0 +1,72 @@
+{
+	"name": "USCB_S1201_MARTIAL_STATUS_IP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "String"
+			},
+			{
+				"name": "NAME",
+				"type": "String"
+			},
+			{
+				"name": "S1201_C02_002E",
+				"type": "String"
+			},
+			{
+				"name": "S1201_C02_009E",
+				"type": "String"
+			},
+			{
+				"name": "State Code",
+				"type": "String"
+			},
+			{
+				"name": "State Name",
+				"type": "String"
+			},
+			{
+				"name": "County Code",
+				"type": "String"
+			},
+			{
+				"name": "County Name",
+				"type": "String"
+			},
+			{
+				"name": "Tract Code",
+				"type": "String"
+			},
+			{
+				"name": "Tract Name",
+				"type": "String"
+			},
+			{
+				"name": "File Source Name",
+				"type": "String"
+			},
+			{
+				"name": "Year",
+				"type": "String"
+			}
+		]
+	}
+}

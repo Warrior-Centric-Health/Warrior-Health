@@ -3,191 +3,11 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "LOAD_USCB_S1201_MARITAL_STATUS",
-				"type": "ForEach",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@variables('Sheetnames')",
-						"type": "Expression"
-					},
-					"isSequential": true,
-					"activities": [
-						{
-							"name": "Load_S1201_data",
-							"type": "Copy",
-							"dependsOn": [],
-							"policy": {
-								"timeout": "7.00:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"source": {
-									"type": "ExcelSource",
-									"storeSettings": {
-										"type": "AzureBlobStorageReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									}
-								},
-								"sink": {
-									"type": "SqlDWSink"
-								},
-								"enableStaging": false,
-								"logSettings": {
-									"enableCopyActivityLog": true,
-									"copyActivityLogSettings": {
-										"logLevel": "Info",
-										"enableReliableLogging": true
-									},
-									"logLocationSettings": {
-										"linkedServiceName": {
-											"referenceName": "Cencus_Blob_Input_Ls",
-											"type": "LinkedServiceReference"
-										},
-										"path": "cencus"
-									}
-								},
-								"translator": {
-									"type": "TabularTranslator",
-									"mappings": [
-										{
-											"source": {
-												"name": "GEO_ID"
-											},
-											"sink": {
-												"name": "GEO_ID"
-											}
-										},
-										{
-											"source": {
-												"name": "NAME"
-											},
-											"sink": {
-												"name": "NAME"
-											}
-										},
-										{
-											"source": {
-												"name": "S1201_C02_002E"
-											},
-											"sink": {
-												"name": "TMV_PER_MAR"
-											}
-										},
-										{
-											"source": {
-												"name": "S1201_C02_009E"
-											},
-											"sink": {
-												"name": "TFV_PER_MAR"
-											}
-										},
-										{
-											"source": {
-												"name": "State Code"
-											},
-											"sink": {
-												"name": "State Code"
-											}
-										},
-										{
-											"source": {
-												"name": "State Name"
-											},
-											"sink": {
-												"name": "State Name"
-											}
-										},
-										{
-											"source": {
-												"name": "County Code"
-											},
-											"sink": {
-												"name": "County Code"
-											}
-										},
-										{
-											"source": {
-												"name": "County Name"
-											},
-											"sink": {
-												"name": "County Name"
-											}
-										},
-										{
-											"source": {
-												"name": "Tract Code"
-											},
-											"sink": {
-												"name": "Tract Code"
-											}
-										},
-										{
-											"source": {
-												"name": "Tract Name"
-											},
-											"sink": {
-												"name": "Tract Name"
-											}
-										},
-										{
-											"source": {
-												"name": "File Source Name"
-											},
-											"sink": {
-												"name": "File Source Name"
-											}
-										},
-										{
-											"source": {
-												"name": "Year"
-											},
-											"sink": {
-												"name": "Year"
-											}
-										}
-									],
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "USCB_S1201_MARTIAL_STATUS_IP_DS",
-									"type": "DatasetReference",
-									"parameters": {
-										"Sheetname": {
-											"value": "@item()",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "USCB_S1201_MARTIAL_STATUS_OP_DS",
-									"type": "DatasetReference"
-								}
-							]
-						}
-					]
-				}
-			},
-			{
 				"name": "Sucesses Log",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "LOAD_USCB_S1201_MARITAL_STATUS",
+						"activity": "Load_S1201_data",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -291,7 +111,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "LOAD_USCB_S1201_MARITAL_STATUS",
+						"activity": "Load_S1201_data",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -313,6 +133,39 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "Load_S1201_data",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "USCB_S1201_MARTIAL_STATUS_IP_DS",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"variables": {
