@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Files/B21100/Year/2019",
+				"folderPath": "Files/S2101/Year/2019",
 				"container": "data"
 			},
 			"columnDelimiter": ",",
