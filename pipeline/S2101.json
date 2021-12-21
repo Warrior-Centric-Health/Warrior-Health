@@ -75,7 +75,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " CPO18_All ",
+									"name": "CPO18_All",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -87,7 +87,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " CPO18_Male ",
+									"name": "CPO18_Male",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -99,7 +99,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " CPO18_Female ",
+									"name": "CPO18_Female",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -111,7 +111,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_O18 ",
+									"name": "TV_O18",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -123,7 +123,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_GWII_POS_O18 ",
+									"name": "TV_GWII_POS_O18",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -135,7 +135,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_POS_GWI ",
+									"name": "TV_018_POS_GWI",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -147,7 +147,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_POS_VE ",
+									"name": "TV_018_POS_VE",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -159,7 +159,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_POS_KE ",
+									"name": "TV_018_POS_KE",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -171,7 +171,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_POS_WWII ",
+									"name": "TV_018_POS_WWII",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -183,7 +183,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_SEX_MALE ",
+									"name": "TV_018_SEX_MALE",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -195,7 +195,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_SEX_FEMALE ",
+									"name": "TV_018_SEX_FEMALE",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -207,7 +207,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_AGE_18TO34 ",
+									"name": "TV_018_AGE_18TO34",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -219,7 +219,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_AGE_35TO54 ",
+									"name": "TV_018_AGE_35TO54",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -255,7 +255,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_AGE_O75 ",
+									"name": "TV_018_AGE_O75",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -267,7 +267,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_WHITEALONE ",
+									"name": "TV_018_RACE_HL_WHITEALONE",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -279,7 +279,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_BA ",
+									"name": "TV_018_RACE_HL_BA",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -291,7 +291,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_AIAN ",
+									"name": "TV_018_RACE_HL_AIAN",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -303,7 +303,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_ASIAN ",
+									"name": "TV_018_RACE_HL_ASIAN",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -315,7 +315,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_NHOPI ",
+									"name": "TV_018_RACE_HL_NHOPI",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -327,7 +327,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_SOR ",
+									"name": "TV_018_RACE_HL_SOR",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -339,7 +339,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_TWO_OR_MORE ",
+									"name": "TV_018_RACE_HL_TWO_OR_MORE",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -351,7 +351,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_HL ",
+									"name": "TV_018_RACE_HL_HL",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -363,7 +363,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " TV_018_RACE_HL_WHITEA_NOT_HORL ",
+									"name": "TV_018_RACE_HL_WHITEA_NOT_HORL",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -375,11 +375,11 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " PERCENT_VETERANS_OF_TOTALPOP ",
+									"name": "PERCENT_VETERANS_OF_TOTALPOP",
 									"type": "Decimal",
 									"physicalType": "decimal",
 									"scale": 2,
-									"precision": 5
+									"precision": 18
 								}
 							},
 							{
@@ -389,11 +389,11 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " PERCENT_VETERANS_OF_SEX_MALE ",
+									"name": "PERCENT_VETERANS_OF_SEX_MALE",
 									"type": "Decimal",
 									"physicalType": "decimal",
 									"scale": 2,
-									"precision": 5
+									"precision": 18
 								}
 							},
 							{
@@ -403,11 +403,11 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": " PERCENT_VETERANS_OF_SEX_FEMALE ",
+									"name": "PERCENT_VETERANS_OF_SEX_FEMALE",
 									"type": "Decimal",
 									"physicalType": "decimal",
 									"scale": 2,
-									"precision": 5
+									"precision": 18
 								}
 							},
 							{
@@ -460,26 +460,38 @@
 							},
 							{
 								"source": {
-									"name": "State Name"
+									"name": "State Name",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "statename"
+									"name": "statename",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "County Name"
+									"name": "County Name",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "countyname"
+									"name": "countyname",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Tract Name"
+									"name": "Tract Name",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "tractname"
+									"name": "tractname",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
 						],
