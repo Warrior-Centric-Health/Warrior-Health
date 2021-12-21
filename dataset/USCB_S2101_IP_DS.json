@@ -1,0 +1,153 @@
+{
+	"name": "USCB_S2101_IP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "USCB_S2101_Zipcode.csv",
+				"folderPath": "Files/USPS_ZIP CODE/YEAR/2019",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "String"
+			},
+			{
+				"name": "NAME",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C01_001E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C01_007E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C01_008E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_001E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_002E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_003E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_004E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_005E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_006E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_007E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_008E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_009E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_010E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_011E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_012E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_013E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_014E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_015E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_016E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_017E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_018E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_019E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_020E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_021E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C03_022E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C04_001E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C04_007E",
+				"type": "String"
+			},
+			{
+				"name": "S2101_C04_008E",
+				"type": "String"
+			},
+			{
+				"name": "zip code tabulation area",
+				"type": "String"
+			},
+			{
+				"name": "year",
+				"type": "String"
+			}
+		]
+	}
+}
