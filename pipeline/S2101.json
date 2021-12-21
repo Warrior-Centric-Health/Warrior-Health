@@ -457,6 +457,30 @@
 									"type": "Int32",
 									"physicalType": "int"
 								}
+							},
+							{
+								"source": {
+									"name": "State Name"
+								},
+								"sink": {
+									"name": "statename"
+								}
+							},
+							{
+								"source": {
+									"name": "County Name"
+								},
+								"sink": {
+									"name": "countyname"
+								}
+							},
+							{
+								"source": {
+									"name": "Tract Name"
+								},
+								"sink": {
+									"name": "tractname"
+								}
 							}
 						],
 						"typeConversion": true,
