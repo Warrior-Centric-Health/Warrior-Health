@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "USCB_S2101_Zipcode.xlsx",
+				"fileName": "USCB_S2101_Zipcode.txt",
 				"folderPath": "Files/USPS_ZIP CODE/YEAR/2019",
 				"container": "data"
 			},
