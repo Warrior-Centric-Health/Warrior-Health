@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "USCB_B21100_ZipCode",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -215,7 +215,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "USCB_B21100_ZipCode",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -319,7 +319,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "USCB_B21100_ZipCode",
 						"dependencyConditions": [
 							"Failed"
 						]
