@@ -41,6 +41,20 @@
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": true
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "Cencus_Blob_Input_Ls",
+								"type": "LinkedServiceReference"
+							},
+							"path": "cencus"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
