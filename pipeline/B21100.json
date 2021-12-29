@@ -185,7 +185,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State_Code"
+									"name": "State_Code",
+									"precision": 10
 								}
 							},
 							{
@@ -195,7 +196,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County_Code"
+									"name": "County_Code",
+									"precision": 10
 								}
 							},
 							{
@@ -205,7 +207,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Tract_Code"
+									"name": "Tract_Code",
+									"precision": 10
 								}
 							},
 							{
