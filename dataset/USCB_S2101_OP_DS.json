@@ -13,7 +13,7 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "GEOGRAPHIC_NAME",
+				"name": "NAME",
 				"type": "nvarchar"
 			},
 			{
@@ -160,12 +160,11 @@
 				"scale": 0
 			},
 			{
-				"name": "ZIPCODE_TABULATION_AREA",
-				"type": "int",
-				"precision": 10
+				"name": "Zipcode_Tabulation_Area",
+				"type": "nvarchar"
 			},
 			{
-				"name": "YEAR",
+				"name": "S2101_Year",
 				"type": "int",
 				"precision": 10
 			}

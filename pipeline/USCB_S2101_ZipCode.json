@@ -27,8 +27,7 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"type": "SqlDWSink"
 					},
 					"enableStaging": false,
 					"translator": {
