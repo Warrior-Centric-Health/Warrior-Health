@@ -231,7 +231,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "Files/B21100/Year/2019",
+						"folderPath": "Files/S2101/Year/2019",
 						"container": "data"
 					},
 					"columnDelimiter": ",",
@@ -435,6 +435,161 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/USCB_B21100_IP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cencus_Blob_Input_Ls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "USCB_B21100_Zipcode.csv",
+						"folderPath": "Files/USPS_ZIP CODE/YEAR/2019",
+						"container": "data"
+					},
+					"columnDelimiter": ",",
+					"encodingName": "UTF-8",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "GEO_ID",
+						"type": "String"
+					},
+					{
+						"name": "NAME",
+						"type": "String"
+					},
+					{
+						"name": "B21100_002E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_003E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_004E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_005E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_006E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_007E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_008E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_009E",
+						"type": "String"
+					},
+					{
+						"name": "state",
+						"type": "String"
+					},
+					{
+						"name": "zip code tabulation area",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/USCB_B21100_OP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [
+					{
+						"name": "GEO_ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GEOGRAPHIC_NAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "B21100_002E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_003E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_004E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_005E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_006E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_007E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_008E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_009E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "STATE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ZIPCODE_TABULATION_AREA",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "AL_USCB_B21100_Zipcode"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/USCB_S1201_MARTIAL_STATUS_IP_DS')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -443,27 +598,69 @@
 					"referenceName": "Cencus_Blob_Input_Ls",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"Sheetname": {
-						"type": "string"
-					}
-				},
 				"annotations": [],
-				"type": "Excel",
+				"type": "DelimitedText",
 				"typeProperties": {
-					"sheetName": {
-						"value": "@dataset().Sheetname",
-						"type": "Expression"
-					},
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "USCB_S1201_08_12_2019 (2).xlsx",
 						"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
 						"container": "data"
 					},
-					"firstRowAsHeader": true
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
 				},
-				"schema": []
+				"schema": [
+					{
+						"name": "GEO_ID",
+						"type": "String"
+					},
+					{
+						"name": "NAME",
+						"type": "String"
+					},
+					{
+						"name": "S1201_C02_002E",
+						"type": "String"
+					},
+					{
+						"name": "S1201_C02_009E",
+						"type": "String"
+					},
+					{
+						"name": "State Code",
+						"type": "String"
+					},
+					{
+						"name": "State Name",
+						"type": "String"
+					},
+					{
+						"name": "County Code",
+						"type": "String"
+					},
+					{
+						"name": "County Name",
+						"type": "String"
+					},
+					{
+						"name": "Tract Code",
+						"type": "String"
+					},
+					{
+						"name": "Tract Name",
+						"type": "String"
+					},
+					{
+						"name": "File Source Name",
+						"type": "String"
+					},
+					{
+						"name": "Year",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": []
 		},
@@ -482,52 +679,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "USCB_S1201_MARTIAL_STATUS"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/USCB_State_Ref_Input')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Cencus_Blob_Input_Ls",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "Ref_State.csv",
-						"folderPath": "Reference_TableData",
-						"container": "cencusdata"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/USCB_State_Ref_Output')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_WCH_DEV",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlDWTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "State_Ref"
 				}
 			},
 			"dependsOn": []

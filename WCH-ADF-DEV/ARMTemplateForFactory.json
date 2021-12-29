@@ -84,6 +84,14 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
+									"modifiedDatetimeStart": {
+										"value": "@adddays(utcnow(),-1)",
+										"type": "Expression"
+									},
+									"modifiedDatetimeEnd": {
+										"value": "@utcnow()",
+										"type": "Expression"
+									},
 									"wildcardFolderPath": "Files/B21001/Year/2019",
 									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
@@ -251,8 +259,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State",
-											"type": "Int32",
+											"name": "State_Code",
 											"physicalType": "int"
 										}
 									},
@@ -263,8 +270,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County",
-											"type": "Int32",
+											"name": "County_Code",
 											"physicalType": "int"
 										}
 									},
@@ -275,8 +281,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Tract",
-											"type": "Int32",
+											"name": "Tract_Code",
 											"physicalType": "int"
 										}
 									},
@@ -415,7 +420,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -465,7 +470,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21001_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/B21001_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -492,6 +497,14 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
+									"modifiedDatetimeStart": {
+										"value": "@adddays(utcnow(),-1)",
+										"type": "Expression"
+									},
+									"modifiedDatetimeEnd": {
+										"value": "@utcnow()",
+										"type": "Expression"
+									},
 									"wildcardFolderPath": "Files/B21100/Year/2019",
 									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
@@ -505,6 +518,20 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
+							"logSettings": {
+								"enableCopyActivityLog": true,
+								"copyActivityLogSettings": {
+									"logLevel": "Info",
+									"enableReliableLogging": true
+								},
+								"logLocationSettings": {
+									"linkedServiceName": {
+										"referenceName": "Cencus_Blob_Input_Ls",
+										"type": "LinkedServiceReference"
+									},
+									"path": "cencus"
+								}
+							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -534,23 +561,13 @@
 									},
 									{
 										"source": {
-											"name": "B21100_009E",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "TV_SCDNOT",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
 											"name": "B21100_002E",
 											"type": "String",
 											"physicalType": "String"
 										},
 										"sink": {
 											"name": "TV_WOSCD",
+											"type": "Int32",
 											"physicalType": "int"
 										}
 									},
@@ -562,6 +579,7 @@
 										},
 										"sink": {
 											"name": "TV_WSCD",
+											"type": "Int32",
 											"physicalType": "int"
 										}
 									},
@@ -573,6 +591,7 @@
 										},
 										"sink": {
 											"name": "TV_PER_SCD10",
+											"type": "Int32",
 											"physicalType": "int"
 										}
 									},
@@ -584,6 +603,7 @@
 										},
 										"sink": {
 											"name": "TV_PER_SCD10TO20",
+											"type": "Int32",
 											"physicalType": "int"
 										}
 									},
@@ -595,6 +615,7 @@
 										},
 										"sink": {
 											"name": "TV_PER_SCD30or40",
+											"type": "Int32",
 											"physicalType": "int"
 										}
 									},
@@ -606,6 +627,7 @@
 										},
 										"sink": {
 											"name": "TV_PER_SCD50or60",
+											"type": "Int32",
 											"physicalType": "int"
 										}
 									},
@@ -617,6 +639,19 @@
 										},
 										"sink": {
 											"name": "TV_PER_SCD70P",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_009E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_SCDNOT",
+											"type": "Int32",
 											"physicalType": "int"
 										}
 									},
@@ -666,6 +701,54 @@
 											"name": "B21100_Year",
 											"type": "Int32",
 											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "State Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "County Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "County_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Tract Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Tract_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "File Source Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FileSourceName ",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									}
 								],
@@ -791,7 +874,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -841,7 +924,8 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21100_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/B21100_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
 			]
 		},
 		{
@@ -868,6 +952,16 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
+									"modifiedDatetimeStart": {
+										"value": "@adddays(utcnow(),-1)",
+										"type": "Expression"
+									},
+									"modifiedDatetimeEnd": {
+										"value": "@utcnow()",
+										"type": "Expression"
+									},
+									"wildcardFolderPath": "Files/CHR/Year/2019",
+									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -1125,7 +1219,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -1172,7 +1266,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/CHR_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/CHR_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -2865,6 +2959,16 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
+									"modifiedDatetimeStart": {
+										"value": "@adddays(utcnow(),-1)",
+										"type": "Expression"
+									},
+									"modifiedDatetimeEnd": {
+										"value": "@utcnow()",
+										"type": "Expression"
+									},
+									"wildcardFolderPath": "Files/GDX/Year/2019",
+									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -2876,6 +2980,20 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
+							"logSettings": {
+								"enableCopyActivityLog": true,
+								"copyActivityLogSettings": {
+									"logLevel": "Warning",
+									"enableReliableLogging": true
+								},
+								"logLocationSettings": {
+									"linkedServiceName": {
+										"referenceName": "Cencus_Blob_Input_Ls",
+										"type": "LinkedServiceReference"
+									},
+									"path": "cencus"
+								}
+							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -3091,7 +3209,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					}
@@ -3109,7 +3227,8 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/GDX_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/GDX_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
 			]
 		},
 		{
@@ -5226,6 +5345,14 @@
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
+									"modifiedDatetimeStart": {
+										"value": "@adddays(utcnow(),-2)",
+										"type": "Expression"
+									},
+									"modifiedDatetimeEnd": {
+										"value": "@utcnow()",
+										"type": "Expression"
+									},
 									"wildcardFolderPath": "Files/S2101/Year/2019",
 									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
@@ -5273,7 +5400,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " CPO18_All ",
+											"name": "CPO18_All",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5285,7 +5412,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " CPO18_Male ",
+											"name": "CPO18_Male",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5297,7 +5424,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " CPO18_Female ",
+											"name": "CPO18_Female",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5309,7 +5436,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_O18 ",
+											"name": "TV_O18",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5321,7 +5448,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_GWII_POS_O18 ",
+											"name": "TV_GWII_POS_O18",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5333,7 +5460,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_POS_GWI ",
+											"name": "TV_018_POS_GWI",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5345,7 +5472,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_POS_VE ",
+											"name": "TV_018_POS_VE",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5357,7 +5484,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_POS_KE ",
+											"name": "TV_018_POS_KE",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5369,7 +5496,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_POS_WWII ",
+											"name": "TV_018_POS_WWII",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5381,7 +5508,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_SEX_MALE ",
+											"name": "TV_018_SEX_MALE",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5393,7 +5520,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_SEX_FEMALE ",
+											"name": "TV_018_SEX_FEMALE",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5405,7 +5532,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_AGE_18TO34 ",
+											"name": "TV_018_AGE_18TO34",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5417,7 +5544,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_AGE_35TO54 ",
+											"name": "TV_018_AGE_35TO54",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5453,7 +5580,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_AGE_O75 ",
+											"name": "TV_018_AGE_O75",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5465,7 +5592,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_WHITEALONE ",
+											"name": "TV_018_RACE_HL_WHITEALONE",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5477,7 +5604,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_BA ",
+											"name": "TV_018_RACE_HL_BA",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5489,7 +5616,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_AIAN ",
+											"name": "TV_018_RACE_HL_AIAN",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5501,7 +5628,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_ASIAN ",
+											"name": "TV_018_RACE_HL_ASIAN",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5513,7 +5640,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_NHOPI ",
+											"name": "TV_018_RACE_HL_NHOPI",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5525,7 +5652,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_SOR ",
+											"name": "TV_018_RACE_HL_SOR",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5537,7 +5664,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_TWO_OR_MORE ",
+											"name": "TV_018_RACE_HL_TWO_OR_MORE",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5549,7 +5676,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_HL ",
+											"name": "TV_018_RACE_HL_HL",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5561,7 +5688,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " TV_018_RACE_HL_WHITEA_NOT_HORL ",
+											"name": "TV_018_RACE_HL_WHITEA_NOT_HORL",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -5573,11 +5700,11 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " PERCENT_VETERANS_OF_TOTALPOP ",
+											"name": "PERCENT_VETERANS_OF_TOTALPOP",
 											"type": "Decimal",
 											"physicalType": "decimal",
 											"scale": 2,
-											"precision": 5
+											"precision": 18
 										}
 									},
 									{
@@ -5587,11 +5714,11 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " PERCENT_VETERANS_OF_SEX_MALE ",
+											"name": "PERCENT_VETERANS_OF_SEX_MALE",
 											"type": "Decimal",
 											"physicalType": "decimal",
 											"scale": 2,
-											"precision": 5
+											"precision": 18
 										}
 									},
 									{
@@ -5601,11 +5728,11 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": " PERCENT_VETERANS_OF_SEX_FEMALE ",
+											"name": "PERCENT_VETERANS_OF_SEX_FEMALE",
 											"type": "Decimal",
 											"physicalType": "decimal",
 											"scale": 2,
-											"precision": 5
+											"precision": 18
 										}
 									},
 									{
@@ -5654,6 +5781,42 @@
 											"name": "S2101_Year",
 											"type": "Int32",
 											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "State Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "statename",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "County Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "countyname",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Tract Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "tractname",
+											"type": "String",
+											"physicalType": "nvarchar"
 										}
 									}
 								],
@@ -5779,7 +5942,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -5826,7 +5989,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S2101_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/S2101_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -6124,6 +6287,374 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/URBAN_RURAL_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/URBAN_RURAL_OP_DS')]",
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/USCB_B21100_ZipCode')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "USCB_B21100_ZipCode",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "SqlDWSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "GEO_ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "GEO_ID",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "GEOGRAPHIC_NAME",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_002E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "B21100_002E",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_003E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "B21100_003E",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_004E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "B21100_004E",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_005E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "B21100_005E",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_006E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "B21100_006E",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_007E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "B21100_007E",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_008E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "B21100_008E",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "B21100_009E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "B21100_009E",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "state",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "STATE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "zip code tabulation area",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ZIPCODE_TABULATION_AREA",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "Year",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "YEAR",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "USCB_B21100_IP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "USCB_B21100_OP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Log Sucesses",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "USCB_B21100_ZipCode",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[Usp_audit_Log]",
+							"storedProcedureParameters": {
+								"adfName": {
+									"value": {
+										"value": "@pipeline().DataFactory",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Errors": {
+									"value": null,
+									"type": "String"
+								},
+								"ExecDate": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								},
+								"PipelineName": {
+									"value": {
+										"value": "@pipeline().Pipeline",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"RowCopied": {
+									"value": {
+										"value": "@activity('USCB_B21100_ZipCode').output.rowsCopied",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"RowRead": {
+									"value": {
+										"value": "@activity('USCB_B21100_ZipCode').output.rowsRead",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"runid": {
+									"value": {
+										"value": "@pipeline().RunId",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Source": {
+									"value": null,
+									"type": "String"
+								},
+								"Target": {
+									"value": null,
+									"type": "String"
+								},
+								"throughPut": {
+									"value": {
+										"value": "@activity('USCB_B21100_ZipCode').output.throughPut",
+										"type": "Expression"
+									},
+									"type": "Decimal"
+								},
+								"triggerName": {
+									"value": {
+										"value": "@pipeline().TriggerName",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"triggerTime": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "Cencus_Output_Ls",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Mail send",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "USCB_B21100_ZipCode",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": {
+								"value": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+								"type": "Expression"
+							},
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('USCB_B21100_ZipCode').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "USCB"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/USCB_B21100_IP_DS')]",
+				"[concat(variables('factoryId'), '/datasets/USCB_B21100_OP_DS')]",
 				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
 			]
 		},
@@ -6888,192 +7419,11 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "LOAD_USCB_S1201_MARITAL_STATUS",
-						"type": "ForEach",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@variables('Sheetnames')",
-								"type": "Expression"
-							},
-							"isSequential": true,
-							"activities": [
-								{
-									"name": "Load_S1201_data",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "7.00:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "ExcelSource",
-											"storeSettings": {
-												"type": "AzureBlobStorageReadSettings",
-												"recursive": true,
-												"enablePartitionDiscovery": false
-											}
-										},
-										"sink": {
-											"type": "SqlDWSink"
-										},
-										"enableStaging": false,
-										"logSettings": {
-											"enableCopyActivityLog": true,
-											"copyActivityLogSettings": {
-												"logLevel": "Info",
-												"enableReliableLogging": true
-											},
-											"logLocationSettings": {
-												"linkedServiceName": {
-													"referenceName": "Cencus_Blob_Input_Ls",
-													"type": "LinkedServiceReference"
-												},
-												"path": "cencus"
-											}
-										},
-										"translator": {
-											"type": "TabularTranslator",
-											"mappings": [
-												{
-													"source": {
-														"name": "GEO_ID"
-													},
-													"sink": {
-														"name": "GEO_ID"
-													}
-												},
-												{
-													"source": {
-														"name": "NAME"
-													},
-													"sink": {
-														"name": "NAME"
-													}
-												},
-												{
-													"source": {
-														"name": "S1201_C02_002E"
-													},
-													"sink": {
-														"name": "TMV_PER_MAR"
-													}
-												},
-												{
-													"source": {
-														"name": "S1201_C02_009E"
-													},
-													"sink": {
-														"name": "TFV_PER_MAR"
-													}
-												},
-												{
-													"source": {
-														"name": "State Code"
-													},
-													"sink": {
-														"name": "State Code"
-													}
-												},
-												{
-													"source": {
-														"name": "State Name"
-													},
-													"sink": {
-														"name": "State Name"
-													}
-												},
-												{
-													"source": {
-														"name": "County Code"
-													},
-													"sink": {
-														"name": "County Code"
-													}
-												},
-												{
-													"source": {
-														"name": "County Name"
-													},
-													"sink": {
-														"name": "County Name"
-													}
-												},
-												{
-													"source": {
-														"name": "Tract Code"
-													},
-													"sink": {
-														"name": "Tract Code"
-													}
-												},
-												{
-													"source": {
-														"name": "Tract Name"
-													},
-													"sink": {
-														"name": "Tract Name"
-													}
-												},
-												{
-													"source": {
-														"name": "File Source Name"
-													},
-													"sink": {
-														"name": "File Source Name"
-													}
-												},
-												{
-													"source": {
-														"name": "Year"
-													},
-													"sink": {
-														"name": "Year"
-													}
-												}
-											],
-											"typeConversion": true,
-											"typeConversionSettings": {
-												"allowDataTruncation": true,
-												"treatBooleanAsNumber": false
-											}
-										}
-									},
-									"inputs": [
-										{
-											"referenceName": "USCB_S1201_MARTIAL_STATUS_IP_DS",
-											"type": "DatasetReference",
-											"parameters": {
-												"Sheetname": {
-													"value": "@item()",
-													"type": "Expression"
-												}
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "USCB_S1201_MARTIAL_STATUS_OP_DS",
-											"type": "DatasetReference",
-											"parameters": {}
-										}
-									]
-								}
-							]
-						}
-					},
-					{
 						"name": "Sucesses Log",
 						"type": "SqlServerStoredProcedure",
 						"dependsOn": [
 							{
-								"activity": "LOAD_USCB_S1201_MARITAL_STATUS",
+								"activity": "Load_S1201_data",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -7168,7 +7518,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -7177,7 +7527,7 @@
 						"type": "WebActivity",
 						"dependsOn": [
 							{
-								"activity": "LOAD_USCB_S1201_MARITAL_STATUS",
+								"activity": "Load_S1201_data",
 								"dependencyConditions": [
 									"Failed"
 								]
@@ -7196,10 +7546,236 @@
 							"method": "POST",
 							"headers": {},
 							"body": {
-								"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('Load_S1201_data').outputError.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+								"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('Load_S1201_data').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
 								"type": "Expression"
 							}
 						}
+					},
+					{
+						"name": "Load_S1201_data",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"modifiedDatetimeStart": {
+										"value": "@adddays(utcnow(),-1)",
+										"type": "Expression"
+									},
+									"modifiedDatetimeEnd": {
+										"value": "@utcnow()",
+										"type": "Expression"
+									},
+									"wildcardFolderPath": "Files/USCB_S1201-MARTIAL STATUS",
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "SqlDWSink"
+							},
+							"enableStaging": false,
+							"logSettings": {
+								"enableCopyActivityLog": true,
+								"copyActivityLogSettings": {
+									"logLevel": "Info",
+									"enableReliableLogging": true
+								},
+								"logLocationSettings": {
+									"linkedServiceName": {
+										"referenceName": "Cencus_Blob_Input_Ls",
+										"type": "LinkedServiceReference"
+									},
+									"path": "cencus"
+								}
+							},
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "GEO_ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "GEO_ID",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "NAME",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "S1201_C02_002E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TMV_PER_MAR",
+											"type": "Decimal",
+											"physicalType": "decimal",
+											"scale": 2,
+											"precision": 18
+										}
+									},
+									{
+										"source": {
+											"name": "S1201_C02_009E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TFV_PER_MAR",
+											"type": "Decimal",
+											"physicalType": "decimal",
+											"scale": 2,
+											"precision": 18
+										}
+									},
+									{
+										"source": {
+											"name": "State Code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State_Code",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "State Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "County Code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "County_Code",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "County Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "County_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Tract Code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Tract_Code",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "Tract Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Tract_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "File Source Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FileSourceName",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Year",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Year",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "USCB_S1201_MARTIAL_STATUS_IP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "USCB_S1201_MARTIAL_STATUS_OP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
 					}
 				],
 				"policy": {
@@ -7222,10 +7798,612 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]",
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
 				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_OP_DS')]",
 				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/USCB_S2101_ZipCode')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "USCB_S2101_ZipCode",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "SqlDWSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "GEO_ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "GEO_ID",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "NAME",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "NAME",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C01_001E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CPO18_All",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C01_007E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CPO18_MALE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C01_008E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CPO18_FEMALE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_001E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_O18",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_002E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_GWII_POS_O18",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_003E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_POS_GWI",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_004E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_POS_VE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_005E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_POS_KE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_006E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_POS_WWII",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_007E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_SEX_MALE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_008E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_SEX_FEMALE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_009E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_AGE_18TO34",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_010E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_AGE_35TO54",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_011E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_AGE_55TO64",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_012E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_AGE_65TO74",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_013E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_AGE_O75",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_014E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_WHITEALONE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_015E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_BA",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_016E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_AIAN",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_017E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_ASIAN",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_018E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_NHOPI",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_019E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_SOR",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_020E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_TWO_OR_MORE",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_021E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_HL",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C03_022E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TV_018_RACE_HL_WHITEA_NOT_HORL",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C04_001E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PERCENT_VETERANS_OF_TOTALPOP",
+											"type": "Decimal",
+											"physicalType": "decimal",
+											"scale": 0,
+											"precision": 18
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C04_007E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PERCENT_VETERANS_OF_SEX_MALE",
+											"type": "Decimal",
+											"physicalType": "decimal",
+											"scale": 0,
+											"precision": 18
+										}
+									},
+									{
+										"source": {
+											"name": "S2101_C04_008E",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PERCENT_VETERANS_OF_SEX_FEMALE",
+											"type": "Decimal",
+											"physicalType": "decimal",
+											"scale": 0,
+											"precision": 18
+										}
+									},
+									{
+										"source": {
+											"name": "zip code tabulation area",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ZIPCODE_TABULATION_AREA",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "year",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "YEAR",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "USCB_S2101_IP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "USCB_S2101_OP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Log Sucesses",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "USCB_S2101_ZipCode",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[Usp_audit_Log]",
+							"storedProcedureParameters": {
+								"adfName": {
+									"value": {
+										"value": "@pipeline().DataFactory",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Errors": {
+									"value": null,
+									"type": "String"
+								},
+								"ExecDate": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								},
+								"PipelineName": {
+									"value": {
+										"value": "@pipeline().Pipeline",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"RowCopied": {
+									"value": {
+										"value": "@activity('USCB_S2101_ZipCode').output.rowsRead",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"RowRead": {
+									"value": {
+										"value": "@activity('USCB_S2101_ZipCode').output.rowsCopied",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"runid": {
+									"value": {
+										"value": "@pipeline().RunId",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Source": {
+									"value": null,
+									"type": "String"
+								},
+								"Target": {
+									"value": null,
+									"type": "String"
+								},
+								"throughPut": {
+									"value": {
+										"value": "@activity('USCB_S2101_ZipCode').output.throughPut",
+										"type": "Expression"
+									},
+									"type": "Decimal"
+								},
+								"triggerName": {
+									"value": {
+										"value": "@pipeline().TriggerName",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"triggerTime": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "Cencus_Output_Ls",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Mail send",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "USCB_S2101_ZipCode",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": {
+								"value": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+								"type": "Expression"
+							},
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('USCB_S2101_ZipCode').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}\n",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "USCB"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/USCB_S2101_IP_DS')]",
+				"[concat(variables('factoryId'), '/datasets/USCB_S2101_OP_DS')]",
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
 			]
 		},
 		{
@@ -7519,7 +8697,8 @@
 								}
 							},
 							"sink": {
-								"type": "SqlDWSink"
+								"type": "SqlDWSink",
+								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
 							"logSettings": {
@@ -7541,7 +8720,7 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "Zip",
+											"name": "zip",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7553,7 +8732,7 @@
 									},
 									{
 										"source": {
-											"name": "Type",
+											"name": "type",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7565,7 +8744,7 @@
 									},
 									{
 										"source": {
-											"name": "Decommissioned",
+											"name": "decommissioned",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7577,7 +8756,7 @@
 									},
 									{
 										"source": {
-											"name": "Primary_City",
+											"name": "primary_city",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7589,7 +8768,7 @@
 									},
 									{
 										"source": {
-											"name": "State",
+											"name": "state",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7601,7 +8780,7 @@
 									},
 									{
 										"source": {
-											"name": "County",
+											"name": "county",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7613,7 +8792,7 @@
 									},
 									{
 										"source": {
-											"name": "Timezone",
+											"name": "timezone",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7625,7 +8804,7 @@
 									},
 									{
 										"source": {
-											"name": "Area_Codes",
+											"name": "area_codes",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7637,7 +8816,7 @@
 									},
 									{
 										"source": {
-											"name": "Country",
+											"name": "country",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7649,7 +8828,7 @@
 									},
 									{
 										"source": {
-											"name": "Approximate_Latitude",
+											"name": "approximate_latitude",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7663,7 +8842,7 @@
 									},
 									{
 										"source": {
-											"name": "Approximate_Longitude",
+											"name": "approximate_longitude",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7677,7 +8856,7 @@
 									},
 									{
 										"source": {
-											"name": "Polygon_Offset_Latitude",
+											"name": "polygon_offset_latitude",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7691,7 +8870,7 @@
 									},
 									{
 										"source": {
-											"name": "Polygon_Offset_Longitude",
+											"name": "polygon_offset_longitude",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7705,7 +8884,7 @@
 									},
 									{
 										"source": {
-											"name": "Internal_Point_Latitude",
+											"name": "internal_point_latitude",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7719,7 +8898,7 @@
 									},
 									{
 										"source": {
-											"name": "Internal_Point_Longitude",
+											"name": "internal_point_longitude",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7733,7 +8912,7 @@
 									},
 									{
 										"source": {
-											"name": "Latitude_Min",
+											"name": "latitude_min",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7747,7 +8926,7 @@
 									},
 									{
 										"source": {
-											"name": "Latitude_Max",
+											"name": "latitude_max",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7761,7 +8940,7 @@
 									},
 									{
 										"source": {
-											"name": "Longitude_Min",
+											"name": "longitude_min",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7775,7 +8954,7 @@
 									},
 									{
 										"source": {
-											"name": "Longitude_Max",
+											"name": "longitude_max",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7922,7 +9101,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -7969,7 +9148,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USPS_ZIPCODE_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/USPS_ZIPCODE_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]",
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
 				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
 			]
 		},
@@ -8185,7 +9364,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "Analytic_data2019_Updated.csv",
 						"folderPath": "Files/CHR/Year/2019",
 						"container": "data"
 					},
@@ -8552,7 +9730,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "GDX_08-11-2019.csv",
 						"folderPath": "Files/GDX/Year/2019",
 						"container": "data"
 					},
@@ -8989,7 +10166,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "Files/B21100/Year/2019",
+						"folderPath": "Files/S2101/Year/2019",
 						"container": "data"
 					},
 					"columnDelimiter": ",",
@@ -9209,6 +10386,165 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/USCB_B21100_IP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cencus_Blob_Input_Ls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "USCB_B21100_Zipcode.csv",
+						"folderPath": "Files/USPS_ZIP CODE/YEAR/2019",
+						"container": "data"
+					},
+					"columnDelimiter": ",",
+					"encodingName": "UTF-8",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "GEO_ID",
+						"type": "String"
+					},
+					{
+						"name": "NAME",
+						"type": "String"
+					},
+					{
+						"name": "B21100_002E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_003E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_004E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_005E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_006E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_007E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_008E",
+						"type": "String"
+					},
+					{
+						"name": "B21100_009E",
+						"type": "String"
+					},
+					{
+						"name": "state",
+						"type": "String"
+					},
+					{
+						"name": "zip code tabulation area",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/USCB_B21100_OP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [
+					{
+						"name": "GEO_ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GEOGRAPHIC_NAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "B21100_002E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_003E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_004E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_005E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_006E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_007E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_008E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "B21100_009E",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "STATE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ZIPCODE_TABULATION_AREA",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "AL_USCB_B21100_Zipcode"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/USCB_S1201_MARTIAL_STATUS_IP_DS')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -9217,27 +10553,69 @@
 					"referenceName": "Cencus_Blob_Input_Ls",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"Sheetname": {
-						"type": "string"
-					}
-				},
 				"annotations": [],
-				"type": "Excel",
+				"type": "DelimitedText",
 				"typeProperties": {
-					"sheetName": {
-						"value": "@dataset().Sheetname",
-						"type": "Expression"
-					},
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "USCB_S1201_08_12_2019 (2).xlsx",
 						"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
 						"container": "data"
 					},
-					"firstRowAsHeader": true
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
 				},
-				"schema": []
+				"schema": [
+					{
+						"name": "GEO_ID",
+						"type": "String"
+					},
+					{
+						"name": "NAME",
+						"type": "String"
+					},
+					{
+						"name": "S1201_C02_002E",
+						"type": "String"
+					},
+					{
+						"name": "S1201_C02_009E",
+						"type": "String"
+					},
+					{
+						"name": "State Code",
+						"type": "String"
+					},
+					{
+						"name": "State Name",
+						"type": "String"
+					},
+					{
+						"name": "County Code",
+						"type": "String"
+					},
+					{
+						"name": "County Name",
+						"type": "String"
+					},
+					{
+						"name": "Tract Code",
+						"type": "String"
+					},
+					{
+						"name": "Tract Name",
+						"type": "String"
+					},
+					{
+						"name": "File Source Name",
+						"type": "String"
+					},
+					{
+						"name": "Year",
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
@@ -9258,6 +10636,348 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "USCB_S1201_MARTIAL_STATUS"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/USCB_S2101_IP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cencus_Blob_Input_Ls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "USCB_S2101_Zipcode.txt",
+						"folderPath": "Files/USPS_ZIP CODE/YEAR/2019",
+						"container": "data"
+					},
+					"columnDelimiter": ",",
+					"encodingName": "UTF-8",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "GEO_ID",
+						"type": "String"
+					},
+					{
+						"name": "NAME",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C01_001E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C01_007E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C01_008E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_001E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_002E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_003E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_004E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_005E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_006E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_007E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_008E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_009E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_010E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_011E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_012E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_013E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_014E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_015E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_016E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_017E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_018E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_019E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_020E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_021E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C03_022E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C04_001E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C04_007E",
+						"type": "String"
+					},
+					{
+						"name": "S2101_C04_008E",
+						"type": "String"
+					},
+					{
+						"name": "zip code tabulation area",
+						"type": "String"
+					},
+					{
+						"name": "year",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/USCB_S2101_OP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [
+					{
+						"name": "GEO_ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "GEOGRAPHIC_NAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CPO18_All",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "CPO18_MALE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "CPO18_FEMALE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_O18",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_GWII_POS_O18",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_POS_GWI",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_POS_VE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_POS_KE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_POS_WWII",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_SEX_MALE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_SEX_FEMALE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_AGE_18TO34",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_AGE_35TO54",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_AGE_55TO64",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_AGE_65TO74",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_AGE_O75",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_WHITEALONE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_BA",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_AIAN",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_ASIAN",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_NHOPI",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_SOR",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_TWO_OR_MORE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_HL",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_018_RACE_HL_WHITEA_NOT_HORL",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "PERCENT_VETERANS_OF_TOTALPOP",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "PERCENT_VETERANS_OF_SEX_MALE",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "PERCENT_VETERANS_OF_SEX_FEMALE",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 0
+					},
+					{
+						"name": "ZIPCODE_TABULATION_AREA",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "YEAR",
+						"type": "int",
+						"precision": 10
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "AL_USCB_S2101_Zipcode"
 				}
 			},
 			"dependsOn": [
