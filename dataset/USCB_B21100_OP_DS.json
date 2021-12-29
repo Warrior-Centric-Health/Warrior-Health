@@ -13,56 +13,61 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "GEOGRAPHIC_NAME",
+				"name": "NAME",
 				"type": "nvarchar"
 			},
 			{
-				"name": "B21100_002E",
+				"name": "TV_WOSCD",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "B21100_003E",
+				"name": "TV_WSCD",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "B21100_004E",
+				"name": "TV_PER_SCD10",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "B21100_005E",
+				"name": "TV_PER_SCD10TO20",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "B21100_006E",
+				"name": "TV_PER_SCD30or40",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "B21100_007E",
+				"name": "TV_PER_SCD50or60",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "B21100_008E",
+				"name": "TV_PER_SCD70P",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "B21100_009E",
+				"name": "TV_SCDNOT",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "STATE",
+				"name": "State_Code",
 				"type": "int",
 				"precision": 10
 			},
 			{
-				"name": "ZIPCODE_TABULATION_AREA",
+				"name": "Zipcode_Tabulation_Area",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "B21100_Year",
 				"type": "int",
 				"precision": 10
 			}
