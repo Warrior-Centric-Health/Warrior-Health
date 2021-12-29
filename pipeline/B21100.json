@@ -185,9 +185,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "State_Code"
 								}
 							},
 							{
@@ -197,9 +195,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "County_Code"
 								}
 							},
 							{
@@ -209,9 +205,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Tract",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "Tract_Code"
 								}
 							},
 							{
