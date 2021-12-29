@@ -7,7 +7,195 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlDWTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CPO18_All",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CPO18_Male",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CPO18_Female",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_O18",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_GWII_POS_O18",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_POS_GWI",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_POS_VE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_POS_KE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_POS_WWII",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_SEX_MALE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_SEX_FEMALE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_AGE_18TO34",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_AGE_35TO54",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_AGE_55TO64",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_AGE_65TO74",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_AGE_O75",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_WHITEALONE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_BA",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_AIAN",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_ASIAN",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_NHOPI",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_SOR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_TWO_OR_MORE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_HL",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_018_RACE_HL_WHITEA_NOT_HORL",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PERCENT_VETERANS_OF_TOTALPOP",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "PERCENT_VETERANS_OF_SEX_MALE",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "PERCENT_VETERANS_OF_SEX_FEMALE",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "State_Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "County_Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Tract_Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "S2101_Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tract_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FileSourceName",
+				"type": "nvarchar"
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "AL_S2101"
