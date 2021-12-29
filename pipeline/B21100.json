@@ -20,6 +20,14 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
 							"wildcardFolderPath": "Files/B21100/Year/2019",
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
@@ -33,6 +41,20 @@
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": true
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "Cencus_Blob_Input_Ls",
+								"type": "LinkedServiceReference"
+							},
+							"path": "cencus"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -62,23 +84,13 @@
 							},
 							{
 								"source": {
-									"name": "B21100_009E",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "TV_SCDNOT",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
 									"name": "B21100_002E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "TV_WOSCD",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
@@ -90,6 +102,7 @@
 								},
 								"sink": {
 									"name": "TV_WSCD",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
@@ -101,6 +114,7 @@
 								},
 								"sink": {
 									"name": "TV_PER_SCD10",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
@@ -112,6 +126,7 @@
 								},
 								"sink": {
 									"name": "TV_PER_SCD10TO20",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
@@ -123,6 +138,7 @@
 								},
 								"sink": {
 									"name": "TV_PER_SCD30or40",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
@@ -134,6 +150,7 @@
 								},
 								"sink": {
 									"name": "TV_PER_SCD50or60",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
@@ -145,6 +162,19 @@
 								},
 								"sink": {
 									"name": "TV_PER_SCD70P",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_009E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_SCDNOT",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
@@ -194,6 +224,54 @@
 									"name": "B21100_Year",
 									"type": "Int32",
 									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "State Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "County Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Tract Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tract_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "File Source Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FileSourceName ",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
 						],
@@ -317,7 +395,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "Cencus_Output_Ls",
+					"referenceName": "LS_WCH_DEV",
 					"type": "LinkedServiceReference"
 				}
 			},

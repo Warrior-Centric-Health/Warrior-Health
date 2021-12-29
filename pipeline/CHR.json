@@ -20,6 +20,16 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
+							"wildcardFolderPath": "Files/CHR/Year/2019",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -275,7 +285,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "Cencus_Output_Ls",
+					"referenceName": "LS_WCH_DEV",
 					"type": "LinkedServiceReference"
 				}
 			},
