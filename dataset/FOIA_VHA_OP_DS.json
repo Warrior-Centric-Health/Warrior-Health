@@ -7,7 +7,47 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlDWTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "Current County (Original)",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State_Abbr",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Name_Raw",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TV_ENR_W_VHA",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_USING_W_VHA",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "County_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Name",
+				"type": "nvarchar"
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "AL_FOIA_VHA"
