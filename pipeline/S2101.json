@@ -417,9 +417,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "State_Code",
+									"precision": 10
 								}
 							},
 							{
@@ -429,9 +428,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "County_Code",
+									"precision": 10
 								}
 							},
 							{
@@ -441,9 +439,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Tract",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "Tract_Code",
+									"precision": 10
 								}
 							},
 							{
@@ -465,9 +462,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "statename",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "State_Name"
 								}
 							},
 							{
@@ -477,9 +472,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "countyname",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "County_Name"
 								}
 							},
 							{
@@ -489,9 +482,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "tractname",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "Tract_Name"
 								}
 							}
 						],
