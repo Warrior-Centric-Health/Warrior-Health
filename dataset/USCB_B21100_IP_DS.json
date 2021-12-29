@@ -1,5 +1,5 @@
 {
-	"name": "USCB_S1201_MARTIAL_STATUS_IP_DS",
+	"name": "USCB_B21100_IP_DS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Cencus_Blob_Input_Ls",
@@ -10,10 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
+				"fileName": "USCB_B21100_Zipcode.csv",
+				"folderPath": "Files/USPS_ZIP CODE/YEAR/2019",
 				"container": "data"
 			},
 			"columnDelimiter": ",",
+			"encodingName": "UTF-8",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
@@ -28,43 +30,43 @@
 				"type": "String"
 			},
 			{
-				"name": "S1201_C02_002E",
+				"name": "B21100_002E",
 				"type": "String"
 			},
 			{
-				"name": "S1201_C02_009E",
+				"name": "B21100_003E",
 				"type": "String"
 			},
 			{
-				"name": "State Code",
+				"name": "B21100_004E",
 				"type": "String"
 			},
 			{
-				"name": "State Name",
+				"name": "B21100_005E",
 				"type": "String"
 			},
 			{
-				"name": "County Code",
+				"name": "B21100_006E",
 				"type": "String"
 			},
 			{
-				"name": "County Name",
+				"name": "B21100_007E",
 				"type": "String"
 			},
 			{
-				"name": "Tract Code",
+				"name": "B21100_008E",
 				"type": "String"
 			},
 			{
-				"name": "Tract Name",
+				"name": "B21100_009E",
 				"type": "String"
 			},
 			{
-				"name": "File Source Name",
+				"name": "state",
 				"type": "String"
 			},
 			{
-				"name": "Year",
+				"name": "zip code tabulation area",
 				"type": "String"
 			}
 		]

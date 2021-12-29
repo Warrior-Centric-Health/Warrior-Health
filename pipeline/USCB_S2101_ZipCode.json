@@ -1,9 +1,9 @@
 {
-	"name": "DMDC",
+	"name": "USCB_S2101_ZipCode",
 	"properties": {
 		"activities": [
 			{
-				"name": "DMDC_Dataload",
+				"name": "USCB_S2101_ZipCode",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -28,7 +28,7 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"disableMetricsCollection": false
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -36,346 +36,390 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "HHS Regions",
+									"name": "GEO_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "HHS Regions",
+									"name": "GEO_ID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "AHA Regions",
+									"name": "NAME",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "AHA Regions",
+									"name": "NAME",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "TRICARE Regions",
+									"name": "S2101_C01_001E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TRICARE Regions",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "VIZIENT Regions",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "VIZIENT Regions",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "USCB",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "USCB",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "CCN Regions",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "CCN Regions",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Sort",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Sort",
+									"name": "CPO18_All",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Abbrv",
+									"name": "S2101_C01_007E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Abbrv",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "State",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "State Name",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": " AD-Army ",
-									"type": "String"
-								},
-								"sink": {
-									"name": "AD-Army",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": " AD-Navy ",
-									"type": "String"
-								},
-								"sink": {
-									"name": "AD-Navy",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": " AD-Marine Corps ",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "AD-Marine Corps",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": " AD-Air Force ",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "AD-Air Force",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": " AD-Coast Guard ",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "AD-Coast Guard",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": " AD-Space Force ",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "AD-Space Force",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": " Active Duty - TOTAL ",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Active Duty - TOTAL",
+									"name": "CPO18_MALE",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Army NG",
+									"name": "S2101_C01_008E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Army NG",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Army Res",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Army Res",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Navy Res",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Navy Res",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "USMC Res",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "USMC Res",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Air Force NG",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Air Force NG",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Air Force Res",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Air Force Res",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Coast Guard Res",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Coast Guard Res",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Space Force Res",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Space Force Res",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "National Guard - TOTAL",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "National Guard - TOTAL",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": " Reserves - TOTAL ",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Reserves - TOTAL",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Natl Guard & Reserves - TOTAL",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Natl Guard & Reserves - TOTAL",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "TOTAL Force",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "TOTAL Force",
+									"name": "CPO18_FEMALE",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Year",
+									"name": "S2101_C03_001E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Year",
+									"name": "TV_O18",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_002E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_GWII_POS_O18",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_003E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_POS_GWI",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_004E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_POS_VE",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_005E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_POS_KE",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_006E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_POS_WWII",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_007E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_SEX_MALE",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_008E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_SEX_FEMALE",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_009E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_AGE_18TO34",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_010E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_AGE_35TO54",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_011E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_AGE_55TO64",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_012E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_AGE_65TO74",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_013E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_AGE_O75",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_014E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_WHITEALONE",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_015E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_BA",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_016E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_AIAN",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_017E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_ASIAN",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_018E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_NHOPI",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_019E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_SOR",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_020E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_TWO_OR_MORE",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_021E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_HL",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C03_022E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_018_RACE_HL_WHITEA_NOT_HORL",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C04_001E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PERCENT_VETERANS_OF_TOTALPOP",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 0,
+									"precision": 18
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C04_007E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PERCENT_VETERANS_OF_SEX_MALE",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 0,
+									"precision": 18
+								}
+							},
+							{
+								"source": {
+									"name": "S2101_C04_008E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PERCENT_VETERANS_OF_SEX_FEMALE",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 0,
+									"precision": 18
+								}
+							},
+							{
+								"source": {
+									"name": "zip code tabulation area",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ZIPCODE_TABULATION_AREA",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "year",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "YEAR",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -390,13 +434,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DMDC_IP_DS",
+						"referenceName": "USCB_S2101_IP_DS",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DMDC_OP_DS",
+						"referenceName": "USCB_S2101_OP_DS",
 						"type": "DatasetReference"
 					}
 				]
@@ -406,7 +450,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "DMDC_Dataload",
+						"activity": "USCB_S2101_ZipCode",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -450,14 +494,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('DMDC_Dataload').output.rowsRead",
+								"value": "@activity('USCB_S2101_ZipCode').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('DMDC_Dataload').output.rowsCopied",
+								"value": "@activity('USCB_S2101_ZipCode').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -479,7 +523,7 @@
 						},
 						"throughPut": {
 							"value": {
-								"value": "@activity('DMDC_Dataload').output.throughPut",
+								"value": "@activity('USCB_S2101_ZipCode').output.throughPut",
 								"type": "Expression"
 							},
 							"type": "Decimal"
@@ -501,7 +545,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "LS_WCH_DEV",
+					"referenceName": "Cencus_Output_Ls",
 					"type": "LinkedServiceReference"
 				}
 			},
@@ -510,7 +554,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "DMDC_Dataload",
+						"activity": "USCB_S2101_ZipCode",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -531,7 +575,7 @@
 					},
 					"method": "POST",
 					"body": {
-						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('DMDC_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('USCB_S2101_ZipCode').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}\n",
 						"type": "Expression"
 					}
 				}
@@ -540,8 +584,6 @@
 		"folder": {
 			"name": "USCB"
 		},
-		"annotations": [],
-		"lastPublishTime": "2021-12-06T09:26:47Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+		"annotations": []
+	}
 }

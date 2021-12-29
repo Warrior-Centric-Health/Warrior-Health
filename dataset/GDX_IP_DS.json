@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "GDX_08-11-2019.csv",
 				"folderPath": "Files/GDX/Year/2019",
 				"container": "data"
 			},

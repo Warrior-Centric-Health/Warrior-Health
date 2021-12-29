@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Analytic_data2019_Updated.csv",
 				"folderPath": "Files/CHR/Year/2019",
 				"container": "data"
 			},

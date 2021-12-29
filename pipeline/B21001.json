@@ -20,6 +20,14 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
 							"wildcardFolderPath": "Files/B21001/Year/2019",
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
@@ -187,8 +195,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State",
-									"type": "Int32",
+									"name": "State_Code",
 									"physicalType": "int"
 								}
 							},
@@ -199,8 +206,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County",
-									"type": "Int32",
+									"name": "County_Code",
 									"physicalType": "int"
 								}
 							},
@@ -211,8 +217,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Tract",
-									"type": "Int32",
+									"name": "Tract_Code",
 									"physicalType": "int"
 								}
 							},
@@ -349,7 +354,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "Cencus_Output_Ls",
+					"referenceName": "LS_WCH_DEV",
 					"type": "LinkedServiceReference"
 				}
 			},
