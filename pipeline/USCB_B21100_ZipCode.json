@@ -259,14 +259,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('Copy data1').output.rowsRead",
+								"value": "@activity('USCB_B21100_ZipCode').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('Copy data1').output.rowsCopied",
+								"value": "@activity('USCB_B21100_ZipCode').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -288,7 +288,7 @@
 						},
 						"throughPut": {
 							"value": {
-								"value": "@activity('Copy data1').output.throughPut",
+								"value": "@activity('USCB_B21100_ZipCode').output.throughPut",
 								"type": "Expression"
 							},
 							"type": "Decimal"
