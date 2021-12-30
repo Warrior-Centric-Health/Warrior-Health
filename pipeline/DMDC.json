@@ -41,7 +41,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "HHS Regions",
+									"name": "HHS_Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -53,7 +53,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "AHA Regions",
+									"name": "AHA_Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -65,7 +65,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TRICARE Regions",
+									"name": "TRICARE_Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -77,7 +77,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "VIZIENT Regions",
+									"name": "VIZIENT_Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -101,7 +101,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CCN Regions",
+									"name": "CCN_Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -125,7 +125,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Abbrv",
+									"name": "State_Abbr",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -137,7 +137,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Name",
+									"name": "State_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -145,7 +145,8 @@
 							{
 								"source": {
 									"name": " AD-Army ",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "AD-Army",
@@ -156,7 +157,8 @@
 							{
 								"source": {
 									"name": " AD-Navy ",
-									"type": "String"
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "AD-Navy",
@@ -171,7 +173,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "AD-Marine Corps",
+									"name": "AD-MarineCorps",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -183,7 +185,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "AD-Air Force",
+									"name": "AD-AirForce",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -195,7 +197,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "AD-Coast Guard",
+									"name": "AD-CoastGuard",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -207,7 +209,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "AD-Space Force",
+									"name": "AD-SpaceForce",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -219,7 +221,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Active Duty - TOTAL",
+									"name": "ActiveDuty-TOTAL",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -231,7 +233,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Army NG",
+									"name": "ArmyNG",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -243,7 +245,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Army Res",
+									"name": "ArmyRes",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -255,7 +257,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Navy Res",
+									"name": "NavyRes",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -267,7 +269,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "USMC Res",
+									"name": "USMCRes",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -279,7 +281,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Air Force NG",
+									"name": "AirForceNG",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -291,7 +293,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Air Force Res",
+									"name": "AirForceRes",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -303,7 +305,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Coast Guard Res",
+									"name": "CoastGuardRes",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -315,7 +317,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Space Force Res",
+									"name": "SpaceForceRes",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -327,7 +329,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "National Guard - TOTAL",
+									"name": "NationalGuard-TOTAL",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -339,7 +341,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Reserves - TOTAL",
+									"name": "Reserves-TOTAL",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -351,7 +353,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Natl Guard & Reserves - TOTAL",
+									"name": "NatlGuard&Reserves-TOTAL",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -363,7 +365,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TOTAL Force",
+									"name": "TOTALForce",
 									"type": "Int32",
 									"physicalType": "int"
 								}
