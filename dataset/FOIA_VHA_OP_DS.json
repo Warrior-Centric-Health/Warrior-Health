@@ -9,7 +9,7 @@
 		"type": "AzureSqlDWTable",
 		"schema": [
 			{
-				"name": "Current County (Original)",
+				"name": "CurrentCounty(Original)",
 				"type": "nvarchar"
 			},
 			{

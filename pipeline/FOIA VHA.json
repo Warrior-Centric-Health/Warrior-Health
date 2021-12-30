@@ -41,9 +41,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Current County (Original)",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "CurrentCounty(Original)"
 								}
 							},
 							{
