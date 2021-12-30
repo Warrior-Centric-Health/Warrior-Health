@@ -42,7 +42,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "RAW Data ColumnName",
+									"name": "RAWDataColumnName",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -54,7 +54,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Estimate Raw ColumnName",
+									"name": "EstimateRawColumnName",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -66,7 +66,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Display Name",
+									"name": "DisplayName",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -78,7 +78,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "User Friendly Column NamesData_PROCESSED",
+									"name": "UserFriendlyColumnNamesData_PROCESSED",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -90,7 +90,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "User Friendly Column Names_Report",
+									"name": "UserFriendlyColumnNames_Report",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
