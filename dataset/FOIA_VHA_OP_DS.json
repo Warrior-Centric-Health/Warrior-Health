@@ -37,11 +37,13 @@
 			},
 			{
 				"name": "County_Code",
-				"type": "nvarchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "State_Code",
-				"type": "nvarchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "County_Name",
