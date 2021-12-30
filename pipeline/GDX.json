@@ -65,8 +65,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATENAME",
-									"type": "String",
+									"name": "State_Name",
 									"physicalType": "nvarchar"
 								}
 							},
@@ -77,8 +76,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "COUNTYNAME",
-									"type": "String",
+									"name": "County_Name",
 									"physicalType": "nvarchar"
 								}
 							},
