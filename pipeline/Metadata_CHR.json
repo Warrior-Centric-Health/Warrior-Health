@@ -42,9 +42,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Required Column Names(RAW)",
+									"name": "RequiredColumnNames(RAW)",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -54,9 +54,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Meta Data",
+									"name": "MetaData",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -66,9 +66,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Display Name",
+									"name": "DisplayName",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -78,9 +78,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "User Friendly Column Names(Data)- PROCESSED",
+									"name": "UserFriendlyColumnNamesData_PROCESSED",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -90,9 +90,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "User Friendly Column Names(Report)",
+									"name": "UserFriendlyColumnNames_Report",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "nvarchar"
 								}
 							}
 						],
