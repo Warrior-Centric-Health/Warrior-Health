@@ -82,7 +82,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "COUNTY",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -94,7 +94,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATE",
+									"name": "State_Abbr",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
