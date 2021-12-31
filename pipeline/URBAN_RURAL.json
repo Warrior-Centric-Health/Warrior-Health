@@ -40,7 +40,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATE",
+									"name": "State_Code",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -52,7 +52,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "COUNTY",
+									"name": "County_Code",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -64,7 +64,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATENAME",
+									"name": "State_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -76,12 +76,17 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "COUNTYNAME",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
+								"source": {
+									"name": "POPPCT_URBAN",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "PER_UW",
 									"type": "Decimal",
@@ -91,6 +96,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "POPPCT_RURAL",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "PER_RW",
 									"type": "Decimal",
