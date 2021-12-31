@@ -42,7 +42,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "RequiredColumnNames(RAW)",
+									"name": "RAWDataColumnName",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
