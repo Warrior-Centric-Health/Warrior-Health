@@ -52,7 +52,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "MetaData",
+									"name": "EstimateRawColumnName",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
