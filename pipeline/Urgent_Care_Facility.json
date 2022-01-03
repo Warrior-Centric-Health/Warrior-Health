@@ -301,7 +301,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Hospital_IP_Ds",
+						"referenceName": "Urgent_Care_Fac_IP_Ds",
 						"type": "DatasetReference"
 					}
 				],
