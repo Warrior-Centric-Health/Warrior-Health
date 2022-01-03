@@ -317,7 +317,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Hospital_OP_DS",
+						"referenceName": "Urgent_Care_Fac_OP_Ds",
 						"type": "DatasetReference"
 					}
 				]

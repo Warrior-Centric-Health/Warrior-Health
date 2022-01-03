@@ -1,0 +1,16 @@
+{
+	"name": "Urgent_Care_Fac_OP_Ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Urgent_Care_Facilities"
+		}
+	}
+}
