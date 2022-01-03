@@ -44,6 +44,216 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "X",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "X",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 18
+								}
+							},
+							{
+								"source": {
+									"name": "Y",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Y",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 18
+								}
+							},
+							{
+								"source": {
+									"name": "FID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "OBJECTID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TELEPHONE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TELEPHONE",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ADDRESS",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ADDRESS2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "STATE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Abbr",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ZIP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ZIP_Code",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FIPS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FIPS",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NAICSCODE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NAICS_CODE",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NAICSDESCR",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NAICS_DESCR",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "GEOLINKID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GEOLINKID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Year",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Year",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
