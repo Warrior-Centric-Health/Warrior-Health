@@ -20,6 +20,16 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
+							"wildcardFolderPath": "Files/Urgent_Care_Facility/Year",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
