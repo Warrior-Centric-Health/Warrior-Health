@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://api.census.gov/data/2019/acs/acs5/subject",
+			"url": "https://api.census.gov/data/2019/acs/acs5/subject?/",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
