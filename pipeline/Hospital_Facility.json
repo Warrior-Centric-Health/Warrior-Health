@@ -65,6 +65,18 @@
 							},
 							{
 								"source": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
 									"name": "COUNTYFIPS",
 									"type": "String",
 									"physicalType": "String"
