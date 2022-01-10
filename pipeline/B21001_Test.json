@@ -190,40 +190,43 @@
 							},
 							{
 								"source": {
-									"name": "State",
+									"name": "State_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "State_Code",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "County",
+									"name": "County_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "County_Code",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Tract",
+									"name": "Tract_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Tract_Code",
+									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Year",
+									"name": "B21001_Year",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -231,6 +234,54 @@
 									"name": "B21001_Year",
 									"type": "Int32",
 									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "FileSourceName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FileSourceName",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "County_Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Tract_Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tract_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
 						],
