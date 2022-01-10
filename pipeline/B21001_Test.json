@@ -249,7 +249,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "B21001_OP_DS",
+						"referenceName": "Test_Ds_2017_B21001",
 						"type": "DatasetReference"
 					}
 				]

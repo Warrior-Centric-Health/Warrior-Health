@@ -1,0 +1,16 @@
+{
+	"name": "Test_Ds_2017_B21001",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Output_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AL_B21001_Test"
+		}
+	}
+}
