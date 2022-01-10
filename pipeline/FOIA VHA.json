@@ -41,9 +41,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Current County (Original)",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "CurrentCounty(Original)"
 								}
 							},
 							{
@@ -53,9 +51,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Abbreviation",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "State_Abbr"
 								}
 							},
 							{
@@ -65,9 +61,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "County_Name_Raw"
 								}
 							},
 							{
@@ -113,9 +107,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County Code",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "County_Code",
+									"precision": 10
 								}
 							},
 							{
@@ -125,9 +118,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Code",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "State_Code",
+									"precision": 10
 								}
 							},
 							{
@@ -137,9 +129,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County Name",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "County_Name"
 								}
 							}
 						],

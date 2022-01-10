@@ -1,0 +1,23 @@
+{
+	"name": "Urgent_Care_Fac_IP_Ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Files/Urgent_Care_Facility/Year",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

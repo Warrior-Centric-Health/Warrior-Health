@@ -7,7 +7,36 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlDWTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "Country_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tract_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tract_Code",
+				"type": "nvarchar"
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "Country_State_County_Tract_Ref"

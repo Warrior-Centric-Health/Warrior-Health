@@ -40,19 +40,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Country",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "State Code",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "State Code(FIPS CODE)",
+									"name": "Country_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -64,7 +52,31 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Name ",
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Code",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "County Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -76,19 +88,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County CODE",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "County Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "County Name",
+									"name": "County_Code",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}

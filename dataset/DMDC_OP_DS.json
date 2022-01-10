@@ -7,7 +7,128 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlDWTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "HHS_Regions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AHA_Regions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TRICARE_Regions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "VIZIENT_Regions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "USCB",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CCN_Regions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sort",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State_Abbr",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD-Army",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD-Navy",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD-MarineCorps",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD-AirForce",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD-CoastGuard",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD-SpaceForce",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ActiveDuty-TOTAL",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ArmyNG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ArmyRes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NavyRes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "USMCRes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AirForceNG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AirForceRes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CoastGuardRes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SpaceForceRes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NationalGuard-TOTAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Reserves-TOTAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NatlGuard&Reserves-TOTAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TOTALForce",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "DMDC"

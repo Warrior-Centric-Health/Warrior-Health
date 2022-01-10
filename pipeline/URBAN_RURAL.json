@@ -40,9 +40,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATE",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "State_Code",
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
@@ -52,9 +52,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "COUNTY",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "County_Code",
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
@@ -64,7 +64,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATENAME",
+									"name": "State_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -76,7 +76,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "COUNTYNAME",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}

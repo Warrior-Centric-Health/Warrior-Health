@@ -34,6 +34,68 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "RAW Data ColumnName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RAWDataColumnName",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Estimate RAW ColumnName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EstimateRAWColumnName",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Display Name ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DisplayName",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "User Friendly ColumnNames Data_PROCESSED",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "UserFriendlyColumnNamesData_PROCESSED",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "User Friendly ColumnNames_Report",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "UserFriendlyColumnNames_Report",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,

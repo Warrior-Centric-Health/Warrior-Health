@@ -27,8 +27,7 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"type": "SqlDWSink"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -407,9 +406,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ZIPCODE_TABULATION_AREA",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "Zipcode_Tabulation_Area"
 								}
 							},
 							{
@@ -419,9 +416,8 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "YEAR",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "S2101_Year",
+									"precision": 10
 								}
 							}
 						],

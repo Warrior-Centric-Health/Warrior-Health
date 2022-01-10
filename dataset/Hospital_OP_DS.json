@@ -7,7 +7,105 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlDWTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "X (Longitude)",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "Y (Latitude)",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "COUNTYFIPS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State_Abbr",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TYPE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OWNER",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ADDRESS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CITY",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ZIP",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TELEPHONE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "STATUS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BEDS",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NAICS_CODE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NAICS_DESC",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TRAUMA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "HELIPAD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "WEBSITE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SOURCE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "Hospital_Facility"

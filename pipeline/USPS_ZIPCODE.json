@@ -50,43 +50,43 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "zip",
+									"name": "Zip",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Zip",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "Zip_Code",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "type",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
 									"name": "Type",
 									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Zip_Type",
+									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "decommissioned",
+									"name": "Decommissioned",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Decommissioned",
+									"name": "Zip_Decommissioned",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "primary_city",
+									"name": "Primary_City",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -98,31 +98,31 @@
 							},
 							{
 								"source": {
-									"name": "state",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
 									"name": "State",
 									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Abbr",
+									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "county",
+									"name": "County",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "timezone",
+									"name": "Timezone",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -134,7 +134,7 @@
 							},
 							{
 								"source": {
-									"name": "area_codes",
+									"name": "Area_Codes",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -146,19 +146,19 @@
 							},
 							{
 								"source": {
-									"name": "country",
+									"name": "Country",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Country",
+									"name": "Country_Abbr",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "approximate_latitude",
+									"name": "Approximate_Latitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -172,7 +172,7 @@
 							},
 							{
 								"source": {
-									"name": "approximate_longitude",
+									"name": "Approximate_Longitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -186,7 +186,7 @@
 							},
 							{
 								"source": {
-									"name": "polygon_offset_latitude",
+									"name": "Polygon_Offset_Latitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -200,7 +200,7 @@
 							},
 							{
 								"source": {
-									"name": "polygon_offset_longitude",
+									"name": "Polygon_Offset_Longitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -214,7 +214,7 @@
 							},
 							{
 								"source": {
-									"name": "internal_point_latitude",
+									"name": "Internal_Point_Latitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -228,7 +228,7 @@
 							},
 							{
 								"source": {
-									"name": "internal_point_longitude",
+									"name": "Internal_Point_Longitude",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -242,7 +242,7 @@
 							},
 							{
 								"source": {
-									"name": "latitude_min",
+									"name": "Latitude_Min",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -256,7 +256,7 @@
 							},
 							{
 								"source": {
-									"name": "latitude_max",
+									"name": "Latitude_Max",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -270,7 +270,7 @@
 							},
 							{
 								"source": {
-									"name": "longitude_min",
+									"name": "Longitude_Min",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -284,7 +284,7 @@
 							},
 							{
 								"source": {
-									"name": "longitude_max",
+									"name": "Longitude_Max",
 									"type": "String",
 									"physicalType": "String"
 								},

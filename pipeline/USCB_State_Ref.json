@@ -42,8 +42,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Country",
-									"type": "String",
+									"name": "Country_Name",
 									"physicalType": "String"
 								}
 							},
@@ -54,8 +53,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Code(FIPS CODE)",
-									"type": "String",
+									"name": "State_Code",
 									"physicalType": "String"
 								}
 							},
@@ -66,8 +64,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Name",
-									"type": "String",
+									"name": "State_Name",
 									"physicalType": "String"
 								}
 							},
@@ -78,8 +75,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State ABBR",
-									"type": "String",
+									"name": "State_Abbr",
 									"physicalType": "String"
 								}
 							}
