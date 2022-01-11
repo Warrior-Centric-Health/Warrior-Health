@@ -180,35 +180,38 @@
 							},
 							{
 								"source": {
-									"name": "State",
+									"name": "State_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "State_Code",
-									"precision": 10
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "County",
+									"name": "County_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "County_Code",
-									"precision": 10
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Tract",
+									"name": "Tract_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Tract_Code",
-									"precision": 10
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
@@ -225,7 +228,7 @@
 							},
 							{
 								"source": {
-									"name": "State Name",
+									"name": "State_Name",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -237,7 +240,7 @@
 							},
 							{
 								"source": {
-									"name": "County Name",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -249,7 +252,7 @@
 							},
 							{
 								"source": {
-									"name": "Tract Name",
+									"name": "Tract_Name",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -261,7 +264,7 @@
 							},
 							{
 								"source": {
-									"name": "File Source Name",
+									"name": "FileSourceName",
 									"type": "String",
 									"physicalType": "String"
 								},
