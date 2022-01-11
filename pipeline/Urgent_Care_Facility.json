@@ -1,9 +1,9 @@
 {
-	"name": "Hospital_Facility",
+	"name": "Urgent_Care_Facility",
 	"properties": {
 		"activities": [
 			{
-				"name": "Hospital_Facility_Load",
+				"name": "Urgent_Care_Facility_Load",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,6 +20,16 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
+							"wildcardFolderPath": "Files/Urgent_Care_Facility/Year",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -28,7 +38,7 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"preCopyScript": "truncate table Hospital_Facility\n",
+						"preCopyScript": "truncate table Urgent_Care_Facilities\n",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -42,7 +52,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "X (Longitude)",
+									"name": "X",
 									"type": "Decimal",
 									"physicalType": "decimal",
 									"scale": 2,
@@ -56,7 +66,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Y (Latitude)",
+									"name": "Y",
 									"type": "Decimal",
 									"physicalType": "decimal",
 									"scale": 2,
@@ -65,36 +75,84 @@
 							},
 							{
 								"source": {
-									"name": "ID",
+									"name": "FID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ID",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "COUNTYFIPS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "COUNTYFIPS",
+									"name": "OBJECTID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "COUNTY",
+									"name": "ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County_Name",
+									"name": "ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TELEPHONE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TELEPHONE",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ADDRESS",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ADDRESS2",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ADDRESS2",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CITY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CITY",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -113,180 +171,72 @@
 							},
 							{
 								"source": {
-									"name": "TYPE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "TYPE",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "OWNER",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "OWNER",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "NAME",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "NAME",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "ADDRESS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ADDRESS",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "CITY",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "CITY",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
 									"name": "ZIP",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ZIP",
+									"name": "ZIP_Code",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "TELEPHONE",
+									"name": "COUNTY",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TELEPHONE",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "STATUS",
+									"name": "FIPS",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATUS",
+									"name": "FIPS",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "BEDS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "BEDS",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "NAICS_CODE",
+									"name": "NAICSCODE",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
 									"name": "NAICS_CODE",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "NAICS_DESC",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "NAICS_DESC",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "TRAUMA",
+									"name": "NAICSDESCR",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TRAUMA",
+									"name": "NAICS_DESCR",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "HELIPAD",
+									"name": "GEOLINKID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "HELIPAD",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "WEBSITE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "WEBSITE",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "SOURCE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "SOURCE",
+									"name": "GEOLINKID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -313,13 +263,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Hospital_IP_Ds",
+						"referenceName": "Urgent_Care_Fac_IP_Ds",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Hospital_OP_DS",
+						"referenceName": "Urgent_Care_Fac_OP_Ds",
 						"type": "DatasetReference"
 					}
 				]
@@ -329,7 +279,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Hospital_Facility_Load",
+						"activity": "Urgent_Care_Facility_Load",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -373,14 +323,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('Hospital_Facility_Load').output.rowsRead",
+								"value": "@activity('Urgent_Care_Facility_Load').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('Hospital_Facility_Load').output.rowsCopied",
+								"value": "@activity('Urgent_Care_Facility_Load').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -402,7 +352,7 @@
 						},
 						"throughPut": {
 							"value": {
-								"value": "@activity('Hospital_Facility_Load').output.throughPut",
+								"value": "@activity('Urgent_Care_Facility_Load').output.throughPut",
 								"type": "Expression"
 							},
 							"type": "Decimal"
@@ -433,7 +383,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "Hospital_Facility_Load",
+						"activity": "Urgent_Care_Facility_Load",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -454,7 +404,7 @@
 					},
 					"method": "POST",
 					"body": {
-						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('Hospital_Facility_Load').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('Urgent_Care_Facility_Load').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
 						"type": "Expression"
 					}
 				}

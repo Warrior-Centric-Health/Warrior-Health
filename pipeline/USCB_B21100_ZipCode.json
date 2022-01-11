@@ -52,7 +52,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "GEOGRAPHIC_NAME",
+									"name": "NAME",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -64,7 +64,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21100_002E",
+									"name": "TV_WOSCD",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -76,7 +76,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21100_003E",
+									"name": "TV_WSCD",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -88,7 +88,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21100_004E",
+									"name": "TV_PER_SCD10",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -100,7 +100,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21100_005E",
+									"name": "TV_PER_SCD10TO20",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -112,7 +112,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21100_006E",
+									"name": "TV_PER_SCD30or40",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -124,7 +124,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21100_007E",
+									"name": "TV_PER_SCD50or60",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -136,7 +136,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21100_008E",
+									"name": "TV_PER_SCD70P",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -148,7 +148,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21100_009E",
+									"name": "TV_SCDNOT",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -160,7 +160,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATE",
+									"name": "State_Code",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -172,7 +172,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ZIPCODE_TABULATION_AREA",
+									"name": "Zipcode_Tabulation_Area",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -184,7 +184,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "YEAR",
+									"name": "B21100_Year",
 									"type": "Int32",
 									"physicalType": "int"
 								}
