@@ -13,344 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/USCB_S2101_IP_DS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Cencus_Blob_Input_Ls",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "USCB_S2101_Zipcode.txt",
-						"folderPath": "Files/USPS_ZIP CODE/YEAR/2019",
-						"container": "data"
-					},
-					"columnDelimiter": ",",
-					"encodingName": "UTF-8",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "GEO_ID",
-						"type": "String"
-					},
-					{
-						"name": "NAME",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C01_001E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C01_007E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C01_008E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_001E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_002E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_003E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_004E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_005E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_006E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_007E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_008E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_009E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_010E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_011E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_012E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_013E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_014E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_015E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_016E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_017E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_018E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_019E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_020E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_021E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C03_022E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C04_001E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C04_007E",
-						"type": "String"
-					},
-					{
-						"name": "S2101_C04_008E",
-						"type": "String"
-					},
-					{
-						"name": "zip code tabulation area",
-						"type": "String"
-					},
-					{
-						"name": "year",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/USCB_S2101_OP_DS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_WCH_DEV",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlDWTable",
-				"schema": [
-					{
-						"name": "GEO_ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "GEOGRAPHIC_NAME",
-						"type": "nvarchar"
-					},
-					{
-						"name": "CPO18_All",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "CPO18_MALE",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "CPO18_FEMALE",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_O18",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_GWII_POS_O18",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_POS_GWI",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_POS_VE",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_POS_KE",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_POS_WWII",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_SEX_MALE",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_SEX_FEMALE",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_AGE_18TO34",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_AGE_35TO54",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_AGE_55TO64",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_AGE_65TO74",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_AGE_O75",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_WHITEALONE",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_BA",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_AIAN",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_ASIAN",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_NHOPI",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_SOR",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_TWO_OR_MORE",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_HL",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_018_RACE_HL_WHITEA_NOT_HORL",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "PERCENT_VETERANS_OF_TOTALPOP",
-						"type": "decimal",
-						"precision": 18,
-						"scale": 0
-					},
-					{
-						"name": "PERCENT_VETERANS_OF_SEX_MALE",
-						"type": "decimal",
-						"precision": 18,
-						"scale": 0
-					},
-					{
-						"name": "PERCENT_VETERANS_OF_SEX_FEMALE",
-						"type": "decimal",
-						"precision": 18,
-						"scale": 0
-					},
-					{
-						"name": "ZIPCODE_TABULATION_AREA",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "YEAR",
-						"type": "int",
-						"precision": 10
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "AL_USCB_S2101_Zipcode"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/USCB_State_Ref_Input')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -438,6 +100,51 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "USPS_ZIPCODE"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Urgent_Care_Fac_IP_Ds')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cencus_Blob_Input_Ls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "Files/Urgent_Care_Facility/Year",
+						"container": "data"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Urgent_Care_Fac_OP_Ds')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Urgent_Care_Facilities"
 				}
 			},
 			"dependsOn": []
@@ -1040,9 +747,8 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "State_Code",
+											"precision": 10
 										}
 									},
 									{
@@ -1052,9 +758,8 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "County_Code",
+											"precision": 10
 										}
 									},
 									{
@@ -1064,9 +769,8 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Tract",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "Tract_Code",
+											"precision": 10
 										}
 									},
 									{
@@ -1356,8 +1060,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State FIPS Code",
-											"type": "String",
+											"name": "State_Code",
 											"physicalType": "nvarchar"
 										}
 									},
@@ -1368,8 +1071,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County FIPS Code",
-											"type": "String",
+											"name": "County_Code",
 											"physicalType": "nvarchar"
 										}
 									},
@@ -1380,8 +1082,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "5-digit FIPS Code",
-											"type": "String",
+											"name": "5-digitFIPSCode",
 											"physicalType": "nvarchar"
 										}
 									},
@@ -1392,8 +1093,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State Abbreviation",
-											"type": "String",
+											"name": "State_Abbr",
 											"physicalType": "nvarchar"
 										}
 									},
@@ -1404,8 +1104,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "CountyName",
-											"type": "String",
+											"name": "County_Name",
 											"physicalType": "nvarchar"
 										}
 									},
@@ -1416,8 +1115,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Release Year",
-											"type": "Int32",
+											"name": "ReleaseYear",
 											"physicalType": "int"
 										}
 									},
@@ -1428,8 +1126,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County Ranked (Yes=1/No=0)",
-											"type": "Int32",
+											"name": "CountyRanked(Yes=1/No=0)",
 											"physicalType": "int"
 										}
 									},
@@ -1682,19 +1379,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Country",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "State Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "State Code(FIPS CODE)",
+											"name": "Country_Name",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -1706,7 +1391,31 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State Name ",
+											"name": "State_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "State Code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State_Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "County Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "County_Name",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -1718,19 +1427,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County CODE",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "County Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "County Name",
+											"name": "County_Code",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -1952,19 +1649,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Country Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "State Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "State Code(FIPS CODE)",
+											"name": "Country_Name",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -1976,7 +1661,31 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State Name ",
+											"name": "State_Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "State Code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State_Code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "County Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "County_Name",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -1988,19 +1697,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County CODE",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "County Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "County Name",
+											"name": "County_Code",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2012,7 +1709,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Tract Name",
+											"name": "Tract_Name",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2024,7 +1721,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Tract Code",
+											"name": "Tract_Code",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2455,7 +2152,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "HHS Regions",
+											"name": "HHS_Regions",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2467,7 +2164,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "AHA Regions",
+											"name": "AHA_Regions",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2479,7 +2176,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "TRICARE Regions",
+											"name": "TRICARE_Regions",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2491,7 +2188,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "VIZIENT Regions",
+											"name": "VIZIENT_Regions",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2515,7 +2212,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "CCN Regions",
+											"name": "CCN_Regions",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2539,7 +2236,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State Abbrv",
+											"name": "State_Abbr",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2551,7 +2248,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State Name",
+											"name": "State_Name",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2559,7 +2256,8 @@
 									{
 										"source": {
 											"name": " AD-Army ",
-											"type": "String"
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "AD-Army",
@@ -2570,7 +2268,8 @@
 									{
 										"source": {
 											"name": " AD-Navy ",
-											"type": "String"
+											"type": "String",
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "AD-Navy",
@@ -2585,7 +2284,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "AD-Marine Corps",
+											"name": "AD-MarineCorps",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2597,7 +2296,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "AD-Air Force",
+											"name": "AD-AirForce",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2609,7 +2308,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "AD-Coast Guard",
+											"name": "AD-CoastGuard",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2621,7 +2320,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "AD-Space Force",
+											"name": "AD-SpaceForce",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2633,7 +2332,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Active Duty - TOTAL",
+											"name": "ActiveDuty-TOTAL",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -2645,7 +2344,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Army NG",
+											"name": "ArmyNG",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2657,7 +2356,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Army Res",
+											"name": "ArmyRes",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2669,7 +2368,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Navy Res",
+											"name": "NavyRes",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2681,7 +2380,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "USMC Res",
+											"name": "USMCRes",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2693,7 +2392,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Air Force NG",
+											"name": "AirForceNG",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2705,7 +2404,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Air Force Res",
+											"name": "AirForceRes",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2717,7 +2416,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Coast Guard Res",
+											"name": "CoastGuardRes",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2729,7 +2428,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Space Force Res",
+											"name": "SpaceForceRes",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2741,7 +2440,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "National Guard - TOTAL",
+											"name": "NationalGuard-TOTAL",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2753,7 +2452,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Reserves - TOTAL",
+											"name": "Reserves-TOTAL",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2765,7 +2464,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Natl Guard & Reserves - TOTAL",
+											"name": "NatlGuard&Reserves-TOTAL",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -2777,7 +2476,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "TOTAL Force",
+											"name": "TOTALForce",
 											"type": "Int32",
 											"physicalType": "int"
 										}
@@ -3011,9 +2710,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Current County (Original)",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "CurrentCounty(Original)"
 										}
 									},
 									{
@@ -3023,9 +2720,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State Abbreviation",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "State_Abbr"
 										}
 									},
 									{
@@ -3035,9 +2730,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "County_Name_Raw"
 										}
 									},
 									{
@@ -3083,9 +2776,8 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County Code",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "County_Code",
+											"precision": 10
 										}
 									},
 									{
@@ -3095,9 +2787,8 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "State Code",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "State_Code",
+											"precision": 10
 										}
 									},
 									{
@@ -3107,9 +2798,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "County Name",
-											"type": "String",
-											"physicalType": "nvarchar"
+											"name": "County_Name"
 										}
 									}
 								],
@@ -3353,8 +3042,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "STATENAME",
-											"type": "String",
+											"name": "State_Name",
 											"physicalType": "nvarchar"
 										}
 									},
@@ -3365,8 +3053,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "COUNTYNAME",
-											"type": "String",
+											"name": "County_Name",
 											"physicalType": "nvarchar"
 										}
 									},
@@ -3644,6 +3331,18 @@
 									},
 									{
 										"source": {
+											"name": "ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ID",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
 											"name": "COUNTYFIPS",
 											"type": "String",
 											"physicalType": "String"
@@ -3661,7 +3360,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "COUNTY",
+											"name": "County_Name",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -3673,7 +3372,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "STATE",
+											"name": "State_Abbr",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4347,7 +4046,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "RAW Data ColumnName",
+											"name": "RAWDataColumnName",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4359,7 +4058,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Metadata ColumnName",
+											"name": "EstimateRawColumnName",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4371,7 +4070,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Display Name ",
+											"name": "DisplayName",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4383,7 +4082,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "User Friendly ColumnNames Data_PROCESSED",
+											"name": "UserFriendlyColumnNamesData_PROCESSED",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4395,7 +4094,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "User Friendly ColumnNames_Report",
+											"name": "UserFriendlyColumnNames_Report",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4570,272 +4269,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Metada_GDX')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "LOAD_METADATA_GDX",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "SqlDWSink"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "Required Column Names(RAW)",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Required Column Names(RAW)",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Meta Data",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Meta Data",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Nate Provided Names (Copy from the provided sheet ) ",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Display Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "User Friendly Column Names(Data)- PROCESSED",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "User Friendly Column Names(Data)- PROCESSED",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "User Friendly Column Names(Report)",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "User Friendly Column Names(Report)",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "Metadata_GDX_IP_DS",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Metadata_GDX_OP_DS",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "Log Success",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "LOAD_METADATA_GDX",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "Usp_audit_Log",
-							"storedProcedureParameters": {
-								"adfName": {
-									"value": {
-										"value": "@pipeline().DataFactory",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"Errors": {
-									"value": null,
-									"type": "String"
-								},
-								"ExecDate": {
-									"value": {
-										"value": "@pipeline().TriggerTime",
-										"type": "Expression"
-									},
-									"type": "DateTime"
-								},
-								"PipelineName": {
-									"value": {
-										"value": "@pipeline().Pipeline",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"RowCopied": {
-									"value": {
-										"value": "@activity('LOAD_METADATA_GDX').output.rowsCopied",
-										"type": "Expression"
-									},
-									"type": "Int32"
-								},
-								"RowRead": {
-									"value": {
-										"value": "@activity('LOAD_METADATA_GDX').output.rowsRead",
-										"type": "Expression"
-									},
-									"type": "Int32"
-								},
-								"runid": {
-									"value": {
-										"value": "@pipeline().RunId",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"Source": {
-									"value": null,
-									"type": "String"
-								},
-								"Target": {
-									"value": null,
-									"type": "String"
-								},
-								"throughPut": {
-									"value": {
-										"value": "@activity('LOAD_METADATA_GDX').output.throughPut",
-										"type": "Expression"
-									},
-									"type": "Decimal"
-								},
-								"triggerName": {
-									"value": {
-										"value": "@pipeline().TriggerName",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"triggerTime": {
-									"value": {
-										"value": "@pipeline().TriggerTime",
-										"type": "Expression"
-									},
-									"type": "DateTime"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "LS_WCH_DEV",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Send Email",
-						"type": "WebActivity",
-						"dependsOn": [
-							{
-								"activity": "LOAD_METADATA_GDX",
-								"dependencyConditions": [
-									"Failed"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
-							"method": "POST",
-							"headers": {},
-							"body": {
-								"value": "{\n\"DatafactoryName\":\"@{pipeline().DataFactory}\",\n\"PipelineName\":\"@{pipeline().Pipeline}\",\n\"PipelineRunid\":\"@{pipeline().RunId}\",\n\"ErrorMessage\":\"@{activity('LOAD_METADATA_GDX').Error.Message}\",\n\"Time\":\"@{utcnow()}\"\n}",
-								"type": "Expression"
-							}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"folder": {
-					"name": "USCB"
-				},
-				"annotations": [],
-				"lastPublishTime": "2021-12-03T07:08:22Z"
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Metadata_CHR')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -4881,9 +4314,9 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Required Column Names(RAW)",
+											"name": "RAWDataColumnName",
 											"type": "String",
-											"physicalType": "String"
+											"physicalType": "nvarchar"
 										}
 									},
 									{
@@ -4893,9 +4326,9 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Meta Data",
+											"name": "EstimateRawColumnName",
 											"type": "String",
-											"physicalType": "String"
+											"physicalType": "nvarchar"
 										}
 									},
 									{
@@ -4905,9 +4338,9 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Display Name",
+											"name": "DisplayName",
 											"type": "String",
-											"physicalType": "String"
+											"physicalType": "nvarchar"
 										}
 									},
 									{
@@ -4917,9 +4350,9 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "User Friendly Column Names(Data)- PROCESSED",
+											"name": "UserFriendlyColumnNamesData_PROCESSED",
 											"type": "String",
-											"physicalType": "String"
+											"physicalType": "nvarchar"
 										}
 									},
 									{
@@ -4929,9 +4362,9 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "User Friendly Column Names(Report)",
+											"name": "UserFriendlyColumnNames_Report",
 											"type": "String",
-											"physicalType": "String"
+											"physicalType": "nvarchar"
 										}
 									}
 								],
@@ -5100,6 +4533,273 @@
 				},
 				"annotations": [],
 				"lastPublishTime": "2021-11-10T14:41:08Z"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Metadata_FOIA_VHA')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Load_Metadata_FOIAVHA",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "SqlDWSink",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Required Column Names(RAW)",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RAWDataColumnName",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Meta Data",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "EstimateRawColumnName",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Nate Provided Names (Copy from the provided sheet ) ",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DisplayName",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "User Friendly Column Names(Data)- PROCESSED",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "UserFriendlyColumnNamesData_PROCESSED",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "User Friendly Column Names(Report)",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "UserFriendlyColumnNames_Report",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "Metadata_FOIAVHA_IP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Metadata_FOIAVHA_OP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Sucesses Log",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Load_Metadata_FOIAVHA",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "Usp_audit_Log",
+							"storedProcedureParameters": {
+								"adfName": {
+									"value": {
+										"value": "@pipeline().DataFactory",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Errors": {
+									"value": null,
+									"type": "String"
+								},
+								"ExecDate": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								},
+								"PipelineName": {
+									"value": {
+										"value": "@pipeline().Pipeline",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"RowCopied": {
+									"value": {
+										"value": "@activity('Load_Metadata_FOIAVHA').output.rowsCopied",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"RowRead": {
+									"value": {
+										"value": "@activity('Load_Metadata_FOIAVHA').output.rowsRead",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"runid": {
+									"value": {
+										"value": "@pipeline().RunId",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Source": {
+									"value": null,
+									"type": "String"
+								},
+								"Target": {
+									"value": null,
+									"type": "String"
+								},
+								"throughPut": {
+									"value": {
+										"value": "@activity('Load_Metadata_FOIAVHA').output.throughPut",
+										"type": "Expression"
+									},
+									"type": "Decimal"
+								},
+								"triggerName": {
+									"value": {
+										"value": "@pipeline().TriggerName",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"triggerTime": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "LS_WCH_DEV",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "SendEmail",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Load_Metadata_FOIAVHA",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\"DatafactoryName\":\"@{pipeline().DataFactory}\",\n\"PipelineName\":\"@{pipeline().Pipeline}\",\n\"PipelineRunid\":\"@{pipeline().RunId}\",\n\"ErrorMessage\":\"@{activity('Load_Metadata_FOIAVHA').Error.Message}\",\n\"Time\":\"@{utcnow()}\"\n}",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "USCB"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-12-03T07:02:31Z"
 			},
 			"dependsOn": []
 		}

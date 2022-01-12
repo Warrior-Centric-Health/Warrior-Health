@@ -51,10 +51,6 @@
 			"type": "string",
 			"defaultValue": "KV-WCH-DEV-SECREATE"
 		},
-		"new_trig_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/WCH_Dev/providers/Microsoft.Storage/storageAccounts/storagefortestdemo"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -93,9 +89,6 @@
 					},
 					"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl')]"
-					},
-					"new_trig_properties_typeProperties_scope": {
-						"value": "[parameters('new_trig_properties_typeProperties_scope')]"
 					},
 					"AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName')]"

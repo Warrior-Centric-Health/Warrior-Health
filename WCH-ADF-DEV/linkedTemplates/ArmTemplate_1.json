@@ -13,44 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/B21100_Metadata_OP_DS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_WCH_DEV",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlDWTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "M_B21100"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/B21100_OP_DS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_WCH_DEV",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlDWTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "AL_B21100"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/CHR_IP_DS')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -179,7 +141,32 @@
 				},
 				"annotations": [],
 				"type": "AzureSqlDWTable",
-				"schema": [],
+				"schema": [
+					{
+						"name": "Country_Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State_Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State_Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "County_Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "County_Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "County_Abbr",
+						"type": "nvarchar"
+					}
+				],
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "Country_State_County_Ref"
@@ -342,7 +329,128 @@
 				},
 				"annotations": [],
 				"type": "AzureSqlDWTable",
-				"schema": [],
+				"schema": [
+					{
+						"name": "HHS_Regions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AHA_Regions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TRICARE_Regions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "VIZIENT_Regions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "USCB",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CCN_Regions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Sort",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "State_Abbr",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State_Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AD-Army",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AD-Navy",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AD-MarineCorps",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AD-AirForce",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AD-CoastGuard",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AD-SpaceForce",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ActiveDuty-TOTAL",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "ArmyNG",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ArmyRes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NavyRes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "USMCRes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AirForceNG",
+						"type": "nvarchar"
+					},
+					{
+						"name": "AirForceRes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CoastGuardRes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SpaceForceRes",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NationalGuard-TOTAL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Reserves-TOTAL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NatlGuard&Reserves-TOTAL",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TOTALForce",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Year",
+						"type": "int",
+						"precision": 10
+					}
+				],
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "DMDC"
@@ -388,7 +496,49 @@
 				},
 				"annotations": [],
 				"type": "AzureSqlDWTable",
-				"schema": [],
+				"schema": [
+					{
+						"name": "CurrentCounty(Original)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State_Abbr",
+						"type": "nvarchar"
+					},
+					{
+						"name": "County_Name_Raw",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TV_ENR_W_VHA",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TV_USING_W_VHA",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Year",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "County_Code",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "State_Code",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "County_Name",
+						"type": "nvarchar"
+					}
+				],
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "AL_FOIA_VHA"
@@ -479,7 +629,105 @@
 				},
 				"annotations": [],
 				"type": "AzureSqlDWTable",
-				"schema": [],
+				"schema": [
+					{
+						"name": "X (Longitude)",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 2
+					},
+					{
+						"name": "Y (Latitude)",
+						"type": "decimal",
+						"precision": 18,
+						"scale": 2
+					},
+					{
+						"name": "ID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "COUNTYFIPS",
+						"type": "nvarchar"
+					},
+					{
+						"name": "County_Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "State_Abbr",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TYPE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "OWNER",
+						"type": "nvarchar"
+					},
+					{
+						"name": "NAME",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ADDRESS",
+						"type": "nvarchar"
+					},
+					{
+						"name": "CITY",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ZIP",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "TELEPHONE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "STATUS",
+						"type": "nvarchar"
+					},
+					{
+						"name": "BEDS",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NAICS_CODE",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "NAICS_DESC",
+						"type": "nvarchar"
+					},
+					{
+						"name": "TRAUMA",
+						"type": "nvarchar"
+					},
+					{
+						"name": "HELIPAD",
+						"type": "nvarchar"
+					},
+					{
+						"name": "WEBSITE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "SOURCE",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Year",
+						"type": "int",
+						"precision": 10
+					}
+				],
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "Hospital_Facility"
@@ -591,6 +839,52 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "M_USCB_S1201"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Metadata_CHR_IP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cencus_Blob_Input_Ls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Metadata_CHR.csv",
+						"folderPath": "Metadata_CencusData/CHR",
+						"container": "cencusdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Metadata_CHR_OP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "M_CHR"
 				}
 			},
 			"dependsOn": []

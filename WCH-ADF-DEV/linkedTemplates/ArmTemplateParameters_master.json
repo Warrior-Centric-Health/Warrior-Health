@@ -38,9 +38,6 @@
 		"LS_WCH_DEV_properties_typeProperties_connectionString_secretName": {
 			"value": "KV-WCH-DEV-SECREATE"
 		},
-		"new_trig_properties_typeProperties_scope": {
-			"value": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/WCH_Dev/providers/Microsoft.Storage/storageAccounts/storagefortestdemo"
-		},
 		"containerUri": {
 			"value": ""
 		},
