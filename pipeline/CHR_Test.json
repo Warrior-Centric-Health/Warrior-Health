@@ -168,7 +168,13 @@
 				"inputs": [
 					{
 						"referenceName": "CHR_IP_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.Filenamep",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
