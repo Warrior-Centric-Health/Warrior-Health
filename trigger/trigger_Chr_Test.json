@@ -2,7 +2,7 @@
 	"name": "trigger_Chr_Test",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
