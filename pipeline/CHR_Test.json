@@ -311,6 +311,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"Filenamep": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "USCB"
 		},
