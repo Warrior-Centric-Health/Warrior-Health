@@ -148,7 +148,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "FOIA_VHA_OP_DS",
+						"referenceName": "VHA_Test_DS",
 						"type": "DatasetReference"
 					}
 				]
