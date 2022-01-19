@@ -29,7 +29,7 @@
 								"type": "Expression"
 							},
 							"wildcardFolderPath": "Files/B21100/Year/2019",
-							"wildcardFileName": "*.txt",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
