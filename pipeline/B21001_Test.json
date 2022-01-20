@@ -300,7 +300,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "B21001_OP_DS",
+						"referenceName": "B21001_Test_Ds",
 						"type": "DatasetReference"
 					}
 				]
