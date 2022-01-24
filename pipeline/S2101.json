@@ -21,7 +21,7 @@
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"modifiedDatetimeStart": {
-								"value": "@adddays(utcnow(),-2)",
+								"value": "@adddays(utcnow(),-1)",
 								"type": "Expression"
 							},
 							"modifiedDatetimeEnd": {
@@ -412,8 +412,7 @@
 							},
 							{
 								"source": {
-									"name": "State",
-									"type": "String",
+									"name": "State_Code",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -423,8 +422,7 @@
 							},
 							{
 								"source": {
-									"name": "County",
-									"type": "String",
+									"name": "County_Code",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -434,8 +432,7 @@
 							},
 							{
 								"source": {
-									"name": "Tract",
-									"type": "String",
+									"name": "Tract_Code",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -457,8 +454,7 @@
 							},
 							{
 								"source": {
-									"name": "State Name",
-									"type": "String",
+									"name": "State_Name",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -467,8 +463,7 @@
 							},
 							{
 								"source": {
-									"name": "County Name",
-									"type": "String",
+									"name": "County_Name",
 									"physicalType": "String"
 								},
 								"sink": {
@@ -477,8 +472,7 @@
 							},
 							{
 								"source": {
-									"name": "Tract Name",
-									"type": "String",
+									"name": "Tract_Name",
 									"physicalType": "String"
 								},
 								"sink": {
