@@ -478,6 +478,14 @@
 								"sink": {
 									"name": "Tract_Name"
 								}
+							},
+							{
+								"source": {
+									"name": "Filesourcename"
+								},
+								"sink": {
+									"name": "FileSourceName"
+								}
 							}
 						],
 						"typeConversion": true,
