@@ -243,7 +243,7 @@
 							},
 							{
 								"source": {
-									"name": "State Code",
+									"name": "State_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -255,7 +255,7 @@
 							},
 							{
 								"source": {
-									"name": "State Name",
+									"name": "State_Name",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -267,7 +267,7 @@
 							},
 							{
 								"source": {
-									"name": "County Code",
+									"name": "County_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -279,7 +279,7 @@
 							},
 							{
 								"source": {
-									"name": "County Name",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -291,7 +291,7 @@
 							},
 							{
 								"source": {
-									"name": "Tract Code",
+									"name": "Tract_Code",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -303,7 +303,7 @@
 							},
 							{
 								"source": {
-									"name": "Tract Name",
+									"name": "Tract_Name",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -315,7 +315,7 @@
 							},
 							{
 								"source": {
-									"name": "File Source Name",
+									"name": "FileSourceName",
 									"type": "String",
 									"physicalType": "String"
 								},
