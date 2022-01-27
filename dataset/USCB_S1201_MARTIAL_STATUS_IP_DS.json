@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "S1201_Combined_2017_lat.csv",
 				"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
 				"container": "data"
 			},
