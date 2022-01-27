@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "S2101_Combined_2017_lat.csv",
 				"folderPath": "Files/S2101/Year/2019",
 				"container": "data"
 			},
