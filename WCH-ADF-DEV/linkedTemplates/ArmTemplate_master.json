@@ -7,14 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "WCH-ADF-DEV"
 		},
-		"AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "DEV-BLOB-Connect"
-		},
-		"AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "DEV-BLOB-Connect"
-		},
 		"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
 			"type": "string",
 			"defaultValue": "KV-BLOB-SAS-SECRET"
@@ -22,10 +14,6 @@
 		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "SEC-DEV-DB"
-		},
-		"Incr_Test_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "DEV-BLOB-Connect"
 		},
 		"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
 			"type": "string",
@@ -50,6 +38,14 @@
 		"LS_WCH_DEV_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "KV-WCH-DEV-SECREATE"
+		},
+		"CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
+		"CHR_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
 		"containerUri": {
 			"type": "string",
@@ -90,20 +86,11 @@
 					"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl')]"
 					},
-					"AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName": {
-						"value": "[parameters('AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName')]"
-					},
-					"AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName": {
-						"value": "[parameters('AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName')]"
-					},
 					"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
 						"value": "[parameters('Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName')]"
 					},
 					"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Cencus_Output_Ls_properties_typeProperties_connectionString_secretName')]"
-					},
-					"Incr_Test_properties_typeProperties_connectionString_secretName": {
-						"value": "[parameters('Incr_Test_properties_typeProperties_connectionString_secretName')]"
 					},
 					"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
 						"value": "[parameters('LS_BLOB_SAS_properties_typeProperties_sasUri_secretName')]"
@@ -188,6 +175,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep": {
+						"value": "[parameters('CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep')]"
+					},
+					"CHR_Yearly_Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('CHR_Yearly_Trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
