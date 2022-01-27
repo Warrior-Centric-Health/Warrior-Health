@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "FOIAVHA_08_11_2019.csv",
 				"folderPath": "Files/FOIA VHA/YEAR/2019",
 				"container": "data"
 			},

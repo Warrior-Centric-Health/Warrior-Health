@@ -28,7 +28,7 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"preCopyScript": "truncate table Hospital_Facility\n",
+						"preCopyScript": "\n",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
