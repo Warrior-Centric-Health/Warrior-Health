@@ -161,7 +161,7 @@
 								"type": "Expression"
 							},
 							"wildcardFolderPath": "Files/USCB_S1201-MARTIAL STATUS",
-							"wildcardFileName": "*.csv",
+							"wildcardFileName": "*.txt",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
