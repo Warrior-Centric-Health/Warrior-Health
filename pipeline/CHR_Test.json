@@ -38,7 +38,7 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"disableMetricsCollection": false
+						"allowCopyCommand": true
 					},
 					"enableStaging": false,
 					"translator": {
@@ -47,122 +47,97 @@
 							{
 								"source": {
 									"name": "State FIPS Code",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
-									"name": "State_Code",
-									"physicalType": "nvarchar"
+									"name": "State_Code"
 								}
 							},
 							{
 								"source": {
 									"name": "County FIPS Code",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
-									"name": "County_Code",
-									"physicalType": "nvarchar"
+									"name": "County_Code"
 								}
 							},
 							{
 								"source": {
 									"name": "5-digit FIPS Code",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
-									"name": "5-digitFIPSCode",
-									"physicalType": "nvarchar"
+									"name": "5-digitFIPSCode"
 								}
 							},
 							{
 								"source": {
 									"name": "State Abbreviation",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
-									"name": "State_Abbr",
-									"physicalType": "nvarchar"
+									"name": "State_Abbr"
 								}
 							},
 							{
 								"source": {
 									"name": "Name",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
-									"name": "County_Name",
-									"physicalType": "nvarchar"
+									"name": "County_Name"
 								}
 							},
 							{
 								"source": {
 									"name": "Release Year",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
-									"name": "ReleaseYear",
-									"physicalType": "int"
+									"name": "ReleaseYear"
 								}
 							},
 							{
 								"source": {
 									"name": "County Ranked (Yes=1/No=0)",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
-									"name": "CountyRanked(Yes=1/No=0)",
-									"physicalType": "int"
+									"name": "CountyRanked(Yes=1/No=0)"
 								}
 							},
 							{
 								"source": {
 									"name": "Primary care physicians numerator",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
 									"name": "PCP",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "Dentists numerator",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
 									"name": "DCP",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "Mental health providers numerator",
-									"type": "String",
-									"physicalType": "String"
+									"type": "String"
 								},
 								"sink": {
 									"name": "MHP",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							}
-						],
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						]
 					}
 				},
 				"inputs": [
@@ -179,7 +154,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "CHR_OP_Test",
+						"referenceName": "CHR_OP_TEst",
 						"type": "DatasetReference"
 					}
 				]
