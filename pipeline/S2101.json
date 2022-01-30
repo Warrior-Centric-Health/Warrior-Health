@@ -481,7 +481,7 @@
 							},
 							{
 								"source": {
-									"name": "Filesourcename"
+									"name": "FileSourceName"
 								},
 								"sink": {
 									"name": "FileSourceName"
