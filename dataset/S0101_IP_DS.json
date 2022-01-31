@@ -1,0 +1,61 @@
+{
+	"name": "S0101_IP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "S0101_combined12.csv",
+				"folderPath": "Files/S0101",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "String"
+			},
+			{
+				"name": "NAME",
+				"type": "String"
+			},
+			{
+				"name": "S0101_C01_001E",
+				"type": "String"
+			},
+			{
+				"name": "State_Code",
+				"type": "String"
+			},
+			{
+				"name": "State_Name",
+				"type": "String"
+			},
+			{
+				"name": "County_Code",
+				"type": "String"
+			},
+			{
+				"name": "County_Name",
+				"type": "String"
+			},
+			{
+				"name": "FileSourceName",
+				"type": "String"
+			},
+			{
+				"name": "S0101_Year",
+				"type": "String"
+			}
+		]
+	}
+}

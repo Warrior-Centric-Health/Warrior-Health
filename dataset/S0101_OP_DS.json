@@ -1,0 +1,57 @@
+{
+	"name": "S0101_OP_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "S0101_CO1_001E",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State_Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "County_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FileSourceName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "S0101_Year",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AL_S0101"
+		}
+	}
+}
