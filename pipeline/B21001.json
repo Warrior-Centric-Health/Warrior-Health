@@ -295,7 +295,13 @@
 				"inputs": [
 					{
 						"referenceName": "B21001_IP_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.Filenamep",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -441,6 +447,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"Filenamep": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "USCB"
 		},
