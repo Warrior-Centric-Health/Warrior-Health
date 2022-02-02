@@ -5,12 +5,20 @@
 			"referenceName": "Cencus_Blob_Input_Ls",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "B21100_Combined_2017_lat.csv",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
 				"folderPath": "Files/B21100/Year/2019",
 				"container": "data"
 			},
