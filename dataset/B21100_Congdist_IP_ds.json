@@ -1,0 +1,120 @@
+{
+	"name": "B21100_Congdist_IP_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Files/Congressional_District/B21100",
+				"container": "data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "B21100_001E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_001M",
+				"type": "String"
+			},
+			{
+				"name": "B21100_002E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_002M",
+				"type": "String"
+			},
+			{
+				"name": "B21100_003E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_003M",
+				"type": "String"
+			},
+			{
+				"name": "B21100_004E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_004M",
+				"type": "String"
+			},
+			{
+				"name": "B21100_005E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_005M",
+				"type": "String"
+			},
+			{
+				"name": "B21100_006E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_006M",
+				"type": "String"
+			},
+			{
+				"name": "B21100_007E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_007M",
+				"type": "String"
+			},
+			{
+				"name": "B21100_008E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_008M",
+				"type": "String"
+			},
+			{
+				"name": "B21100_009E",
+				"type": "String"
+			},
+			{
+				"name": "B21100_009M",
+				"type": "String"
+			},
+			{
+				"name": "GEO_ID",
+				"type": "String"
+			},
+			{
+				"name": "NAME",
+				"type": "String"
+			},
+			{
+				"name": "Cong_Dist_Name",
+				"type": "String"
+			},
+			{
+				"name": "State_Name",
+				"type": "String"
+			},
+			{
+				"name": "FileSourceName",
+				"type": "String"
+			},
+			{
+				"name": "B21100_Year",
+				"type": "String"
+			}
+		]
+	}
+}
