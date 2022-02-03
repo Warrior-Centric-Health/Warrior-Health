@@ -179,20 +179,6 @@
 								}
 							},
 							{
-								"sink": {
-									"name": "County_Code",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"sink": {
-									"name": "Tract_Code",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
 								"source": {
 									"name": "B21100_Year",
 									"type": "String",
