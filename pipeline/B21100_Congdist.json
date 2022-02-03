@@ -28,8 +28,8 @@
 								"value": "@utcnow()",
 								"type": "Expression"
 							},
-							"wildcardFolderPath": "Files/B21100/Year/2019",
-							"wildcardFileName": "*.txt",
+							"wildcardFolderPath": "Files/Congressional_District/B21100",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
