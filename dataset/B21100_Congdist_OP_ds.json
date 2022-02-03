@@ -1,0 +1,102 @@
+{
+	"name": "B21100_Congdist_OP_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TV_WOSCD",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_WSCD",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD10",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD10TO20",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD30or40",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD50or60",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD70P",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_SCDNOT",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tract_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "B21100_Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tract_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FileSourceName ",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Cong_Dist_Name",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Backup_B21100"
+		}
+	}
+}

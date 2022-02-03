@@ -179,39 +179,17 @@
 								}
 							},
 							{
-								"source": {
-									"name": "State_Code",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
-									"name": "State_Code",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "County_Code",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
-								"source": {
-									"name": "County_Code",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "County_Code",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "Tract_Code",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "Tract_Code",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -234,30 +212,6 @@
 								},
 								"sink": {
 									"name": "State_Name",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "County_Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "County_Name",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Tract_Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Tract_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -270,6 +224,18 @@
 								},
 								"sink": {
 									"name": "FileSourceName ",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Cong_Dist_Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cong_Dist_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -290,7 +256,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "B21100_OP_DS",
+						"referenceName": "B21100_Congdist_OP_ds",
 						"type": "DatasetReference"
 					}
 				]
