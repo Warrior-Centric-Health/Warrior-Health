@@ -20,16 +20,6 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"modifiedDatetimeStart": {
-								"value": "@adddays(utcnow(),-1)",
-								"type": "Expression"
-							},
-							"modifiedDatetimeEnd": {
-								"value": "@utcnow()",
-								"type": "Expression"
-							},
-							"wildcardFolderPath": "Files/B21100/Year/2019",
-							"wildcardFileName": "*.txt",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -284,14 +274,8 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "B21100_IP_DS",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@pipeline().parameters.FileName",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "B21100_Congdist_IP_ds",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
@@ -437,11 +421,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"FileName": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "USCB"
 		},
