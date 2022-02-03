@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "B21100_Dataload",
+				"name": "B21100_Congdist_Dataload",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -180,6 +180,42 @@
 							},
 							{
 								"source": {
+									"name": "State_Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Code",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "County_Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County_Code",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Tract_Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tract_Code",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
 									"name": "B21100_Year",
 									"type": "String",
 									"physicalType": "String"
@@ -204,24 +240,36 @@
 							},
 							{
 								"source": {
-									"name": "FileSourceName",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "FileSourceName ",
+									"name": "County_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Cong_Dist_Name",
+									"name": "Tract_Name",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Cong_Dist_Name",
+									"name": "Tract_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FileSourceName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FileSourceName ",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -242,7 +290,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "B21100_Congdist_OP_ds",
+						"referenceName": "B21100_OP_DS",
 						"type": "DatasetReference"
 					}
 				]
@@ -252,7 +300,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "B21100_Dataload",
+						"activity": "B21100_Congdist_Dataload",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -356,7 +404,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "B21100_Dataload",
+						"activity": "B21100_Congdist_Dataload",
 						"dependencyConditions": [
 							"Failed"
 						]
