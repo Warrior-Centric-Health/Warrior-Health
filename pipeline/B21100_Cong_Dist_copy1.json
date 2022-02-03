@@ -1,0 +1,390 @@
+{
+	"name": "B21100_Cong_Dist_copy1",
+	"properties": {
+		"activities": [
+			{
+				"name": "S2101_Dataload",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
+							"wildcardFolderPath": "Files/Congressional_District/S2101",
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": true
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "Cencus_Blob_Input_Ls",
+								"type": "LinkedServiceReference"
+							},
+							"path": "cencus"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "GEO_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "GEO_ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "NAME",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_002E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_WOSCD",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_003E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_WSCD",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_004E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_PER_SCD10",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_005E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_PER_SCD10TO20",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_006E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_PER_SCD30or40",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_007E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_PER_SCD50or60",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_008E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_PER_SCD70P",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_009E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TV_SCDNOT",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21100_Year",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "B21100_Year",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FileSourceName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FileSourceName ",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Cong_Dist_Name"
+								},
+								"sink": {
+									"name": "Cong_Dist_Name",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "S2101_Congdist_IP_DS",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "S2101_Congdist_OP_DS",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Log Sucesses",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "S2101_Dataload",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[Usp_audit_Log]",
+					"storedProcedureParameters": {
+						"adfName": {
+							"value": {
+								"value": "@pipeline().DataFactory",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Errors": {
+							"value": "Success",
+							"type": "String"
+						},
+						"ExecDate": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"PipelineName": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"RowCopied": {
+							"value": {
+								"value": "@activity('B21100_Dataload').output.rowsRead",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"RowRead": {
+							"value": {
+								"value": "@activity('B21100_Dataload').output.rowsCopied",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"runid": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Source": {
+							"value": null,
+							"type": "String"
+						},
+						"Target": {
+							"value": null,
+							"type": "String"
+						},
+						"throughPut": {
+							"value": {
+								"value": "@activity('B21100_Dataload').output.throughPut",
+								"type": "Expression"
+							},
+							"type": "Decimal"
+						},
+						"triggerName": {
+							"value": {
+								"value": "@pipeline().TriggerName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"triggerTime": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Mail send",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "S2101_Dataload",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+						"type": "Expression"
+					},
+					"method": "POST",
+					"body": {
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('B21100_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "USCB"
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-12-06T09:22:55Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
