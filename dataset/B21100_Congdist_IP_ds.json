@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "B21100_Combined_Congdist.csv",
 				"folderPath": "Files/Congressional_District/B21100",
 				"container": "data"
 			},

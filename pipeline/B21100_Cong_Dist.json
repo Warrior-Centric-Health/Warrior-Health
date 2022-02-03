@@ -1,5 +1,5 @@
 {
-	"name": "B21100_Congdist",
+	"name": "B21100_Cong_Dist",
 	"properties": {
 		"activities": [
 			{
@@ -20,6 +20,16 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
+							"wildcardFolderPath": "Files/Congressional_District/B21100",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {

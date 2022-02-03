@@ -96,7 +96,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Backup_B21100"
+			"table": "AL_B21100"
 		}
 	}
 }
