@@ -20,6 +20,16 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@adddays(utcnow(),-1)",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
+							"wildcardFolderPath": "Files/S0101",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -154,7 +164,13 @@
 				"inputs": [
 					{
 						"referenceName": "S0101_IP_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.Filenamep",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -297,6 +313,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"Filenamep": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "USCB"
 		},
