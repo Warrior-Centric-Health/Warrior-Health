@@ -348,7 +348,13 @@
 				"inputs": [
 					{
 						"referenceName": "USCB_S1201_MARTIAL_STATUS_IP_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -359,6 +365,11 @@
 				]
 			}
 		],
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"Sheetnames": {
 				"type": "Array",
