@@ -2,7 +2,7 @@
 	"name": "FOIA_VHA Yearly Trigger",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
