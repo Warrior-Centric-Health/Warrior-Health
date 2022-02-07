@@ -1,5 +1,5 @@
 {
-	"name": "USCB_S1201_MARTIAL_STATUS_IP_DS",
+	"name": "S0101_IP_DS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Cencus_Blob_Input_Ls",
@@ -19,7 +19,7 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
+				"folderPath": "Files/S0101",
 				"container": "data"
 			},
 			"columnDelimiter": ",",
@@ -37,43 +37,31 @@
 				"type": "String"
 			},
 			{
-				"name": "S1201_C02_002E",
+				"name": "S0101_C01_001E",
 				"type": "String"
 			},
 			{
-				"name": "S1201_C02_009E",
+				"name": "State_Code",
 				"type": "String"
 			},
 			{
-				"name": "State Code",
+				"name": "State_Name",
 				"type": "String"
 			},
 			{
-				"name": "State Name",
+				"name": "County_Code",
 				"type": "String"
 			},
 			{
-				"name": "County Code",
+				"name": "County_Name",
 				"type": "String"
 			},
 			{
-				"name": "County Name",
+				"name": "FileSourceName",
 				"type": "String"
 			},
 			{
-				"name": "Tract Code",
-				"type": "String"
-			},
-			{
-				"name": "Tract Name",
-				"type": "String"
-			},
-			{
-				"name": "File Source Name",
-				"type": "String"
-			},
-			{
-				"name": "Year",
+				"name": "S0101_Year",
 				"type": "String"
 			}
 		]

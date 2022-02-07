@@ -1,9 +1,9 @@
 {
-	"name": "B21100",
+	"name": "S2101_Cong_Dist",
 	"properties": {
 		"activities": [
 			{
-				"name": "B21100_Dataload",
+				"name": "S2101_Dataload",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -28,8 +28,8 @@
 								"value": "@utcnow()",
 								"type": "Expression"
 							},
-							"wildcardFolderPath": "Files/B21100/Year/2019",
-							"wildcardFileName": "*.txt",
+							"wildcardFolderPath": "Files/Congressional_District/S2101",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -180,42 +180,6 @@
 							},
 							{
 								"source": {
-									"name": "State_Code",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "State_Code",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "County_Code",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "County_Code",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "Tract_Code",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Tract_Code",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
 									"name": "B21100_Year",
 									"type": "String",
 									"physicalType": "String"
@@ -234,30 +198,6 @@
 								},
 								"sink": {
 									"name": "State_Name",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "County_Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "County_Name",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Tract_Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Tract_Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -273,6 +213,15 @@
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
+							},
+							{
+								"source": {
+									"name": "Cong_Dist_Name"
+								},
+								"sink": {
+									"name": "Cong_Dist_Name",
+									"physicalType": "nvarchar"
+								}
 							}
 						],
 						"typeConversion": true,
@@ -284,19 +233,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "B21100_IP_DS",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@pipeline().parameters.FileName",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "S2101_Congdist_IP_DS",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "B21100_OP_DS",
+						"referenceName": "S2101_Congdist_OP_DS",
 						"type": "DatasetReference"
 					}
 				]
@@ -306,7 +249,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "B21100_Dataload",
+						"activity": "S2101_Dataload",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -350,14 +293,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('B21100_Dataload').output.rowsRead",
+								"value": "@activity('S2101_Dataload').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('B21100_Dataload').output.rowsCopied",
+								"value": "@activity('S2101_Dataload').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -379,7 +322,7 @@
 						},
 						"throughPut": {
 							"value": {
-								"value": "@activity('B21100_Dataload').output.throughPut",
+								"value": "@activity('S2101_Dataload').output.throughPut",
 								"type": "Expression"
 							},
 							"type": "Decimal"
@@ -410,7 +353,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "B21100_Dataload",
+						"activity": "S2101_Dataload",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -431,17 +374,12 @@
 					},
 					"method": "POST",
 					"body": {
-						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('B21100_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('S2101_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
 						"type": "Expression"
 					}
 				}
 			}
 		],
-		"parameters": {
-			"FileName": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "USCB"
 		},

@@ -1,9 +1,9 @@
 {
-	"name": "B21100",
+	"name": "B21001_Cong_Dist",
 	"properties": {
 		"activities": [
 			{
-				"name": "B21100_Dataload",
+				"name": "load_B21001",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -28,8 +28,8 @@
 								"value": "@utcnow()",
 								"type": "Expression"
 							},
-							"wildcardFolderPath": "Files/B21100/Year/2019",
-							"wildcardFileName": "*.txt",
+							"wildcardFolderPath": "Files/Congressional_District/B21001",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -41,20 +41,6 @@
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
-					"logSettings": {
-						"enableCopyActivityLog": true,
-						"copyActivityLogSettings": {
-							"logLevel": "Info",
-							"enableReliableLogging": true
-						},
-						"logLocationSettings": {
-							"linkedServiceName": {
-								"referenceName": "Cencus_Blob_Input_Ls",
-								"type": "LinkedServiceReference"
-							},
-							"path": "cencus"
-						}
-					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -84,182 +70,134 @@
 							},
 							{
 								"source": {
-									"name": "B21100_002E",
+									"name": "B21001_008E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TV_WOSCD",
+									"name": "TMV_018_AGE_18TO34",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21100_003E",
+									"name": "B21001_011E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TV_WSCD",
+									"name": "TMV_018_AGE_35TO54",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21100_004E",
+									"name": "B21001_014E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TV_PER_SCD10",
+									"name": "TMV_018_AGE_55TO64",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21100_005E",
+									"name": "B21001_017E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TV_PER_SCD10TO20",
+									"name": "TMV_018_AGE_65TO74",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21100_006E",
+									"name": "B21001_020E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TV_PER_SCD30or40",
+									"name": "TMV_018_AGE_75P",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21100_007E",
+									"name": "B21001_026E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TV_PER_SCD50or60",
+									"name": "TFV_018_AGE_18TO34",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21100_008E",
+									"name": "B21001_029E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TV_PER_SCD70P",
+									"name": "TFV_018_AGE_35TO54",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21100_009E",
+									"name": "B21001_032E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TV_SCDNOT",
+									"name": "TFV_018_AGE_55TO64",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "State_Code",
+									"name": "B21001_035E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State_Code",
+									"name": "TFV_018_AGE_65TO74",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "County_Code",
+									"name": "B21001_038E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County_Code",
+									"name": "TFV_018_AGE_75P",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Tract_Code",
+									"name": "B21001_Year",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Tract_Code",
+									"name": "B21001_Year",
 									"type": "Int32",
 									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "B21100_Year",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "B21100_Year",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "State_Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "State_Name",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "County_Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "County_Name",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "Tract_Name",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Tract_Name",
-									"type": "String",
-									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -269,9 +207,29 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "FileSourceName ",
+									"name": "FileSourceName",
 									"type": "String",
 									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State_Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Cong_Dist_Name"
+								},
+								"sink": {
+									"name": "Cong_Dist_Name"
 								}
 							}
 						],
@@ -284,19 +242,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "B21100_IP_DS",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@pipeline().parameters.FileName",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "B21001_IP_Congrs_DS",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "B21100_OP_DS",
+						"referenceName": "B21001_OP_Congras_DS",
 						"type": "DatasetReference"
 					}
 				]
@@ -306,7 +258,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "B21100_Dataload",
+						"activity": "load_B21001",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -331,7 +283,7 @@
 							"type": "String"
 						},
 						"Errors": {
-							"value": "Success",
+							"value": null,
 							"type": "String"
 						},
 						"ExecDate": {
@@ -350,14 +302,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('B21100_Dataload').output.rowsRead",
+								"value": "@activity('load_B21001').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('B21100_Dataload').output.rowsCopied",
+								"value": "@activity('load_B21001').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -379,7 +331,7 @@
 						},
 						"throughPut": {
 							"value": {
-								"value": "@activity('B21100_Dataload').output.throughPut",
+								"value": "@activity('load_B21001').output.throughPut",
 								"type": "Expression"
 							},
 							"type": "Decimal"
@@ -406,11 +358,11 @@
 				}
 			},
 			{
-				"name": "Mail send",
+				"name": "SendEmail",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "B21100_Dataload",
+						"activity": "load_B21001",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -431,22 +383,17 @@
 					},
 					"method": "POST",
 					"body": {
-						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('B21100_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('load_B21001').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
 						"type": "Expression"
 					}
 				}
 			}
 		],
-		"parameters": {
-			"FileName": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "USCB"
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-12-06T09:22:55Z"
+		"lastPublishTime": "2021-12-03T08:20:16Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
