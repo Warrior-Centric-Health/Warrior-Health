@@ -13,7 +13,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/data/blobs/data/Files/Congressional_District/B21100",
+			"blobPathBeginsWith": "/data/blobs/Files/Congressional_District/B21100",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw",
