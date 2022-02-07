@@ -1,25 +1,16 @@
 {
-	"name": "GDX_IP_DS",
+	"name": "B21001_IP_Congrs_DS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Cencus_Blob_Input_Ls",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"FileName": {
-				"type": "string"
-			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": {
-					"value": "@dataset().FileName",
-					"type": "Expression"
-				},
-				"folderPath": "Files/GDX/Year/2019",
+				"folderPath": "Files/Congressional_District/B21001",
 				"container": "data"
 			},
 			"columnDelimiter": ",",
@@ -28,6 +19,5 @@
 			"quoteChar": "\""
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }

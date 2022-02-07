@@ -481,7 +481,7 @@
 							},
 							{
 								"source": {
-									"name": "Filesourcename"
+									"name": "FileSourceName"
 								},
 								"sink": {
 									"name": "FileSourceName"
@@ -498,7 +498,13 @@
 				"inputs": [
 					{
 						"referenceName": "S2101_IP_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.Filenamep",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -641,6 +647,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"Filenamep": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "USCB"
 		},

@@ -1,8 +1,8 @@
 {
-	"name": "Country_State_County_Zipcode_Ref_OP_DS",
+	"name": "B21001_OP_Congras_DS",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Cencus_Output_Ls",
+			"referenceName": "LS_WCH_DEV",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Country_State_County_Zipcode_Ref"
+			"table": "AL_B21001"
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
