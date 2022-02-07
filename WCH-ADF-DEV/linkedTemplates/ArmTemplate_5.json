@@ -1,0 +1,289 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "WCH-ADF-DEV"
+		},
+		"B21100_Yearly_Trigger_properties_B21100_parameters_FileName": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
+		"B21100_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
+		"CHR_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"FOIA_VHA Yearly Trigger_properties_FOIA VHA_parameters_Filenamep": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
+		"FOIA_VHA Yearly Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"GDX_Yearly_Trigger_properties_GDX_parameters_FileName": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
+		"GDX_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"S0101_Yearly_Trigger_properties_S0101_parameters_Filenamep": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
+		"S0101_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileName": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
+		"S1201_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"S2101_Yearly_Trigger_properties_S2101_parameters_Filenamep": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
+		"S2101_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/B21100_Yearly_Trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "B21100",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"FileName": "[parameters('B21100_Yearly_Trigger_properties_B21100_parameters_FileName')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/data/blobs/Files/B21100/Year/2019",
+					"blobPathEndsWith": ".txt",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('B21100_Yearly_Trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CHR_Yearly_Trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "CHR",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"Filenamep": "[parameters('CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/data/blobs/Files/CHR/Year/2019/",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('CHR_Yearly_Trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/FOIA_VHA Yearly Trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "FOIA VHA",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"Filenamep": "[parameters('FOIA_VHA Yearly Trigger_properties_FOIA VHA_parameters_Filenamep')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/data/blobs/Files/FOIA VHA/YEAR/2019/",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('FOIA_VHA Yearly Trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/GDX_Yearly_Trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "GDX",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"FileName": "[parameters('GDX_Yearly_Trigger_properties_GDX_parameters_FileName')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/data/blobs/Files/GDX/Year/2019",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('GDX_Yearly_Trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/S0101_Yearly_Trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "S0101",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"Filenamep": "[parameters('S0101_Yearly_Trigger_properties_S0101_parameters_Filenamep')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/data/blobs/Files/S0101",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('S0101_Yearly_Trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/S1201_Yearly_Trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "USCB_S1201_MARITAL_STATUS",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"FileName": "[parameters('S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileName')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/data/blobs/Files/USCB_S1201-MARTIAL STATUS",
+					"blobPathEndsWith": ".txt",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('S1201_Yearly_Trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/S2101_Yearly_Trigger')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "S2101",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"Filenamep": "[parameters('S2101_Yearly_Trigger_properties_S2101_parameters_Filenamep')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/data/blobs/Files/S2101/Year/2019",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('S2101_Yearly_Trigger_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
