@@ -39,11 +39,19 @@
 			"type": "string",
 			"defaultValue": "KV-WCH-DEV-SECREATE"
 		},
+		"B21001_CongDist_Yearly_trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
 		"B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep": {
 			"type": "string",
 			"defaultValue": "triggerBody().fileName"
 		},
 		"B21001_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"B21100_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
@@ -92,6 +100,10 @@
 			"defaultValue": "triggerBody().fileName"
 		},
 		"S1201_Yearly_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"S2101_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
@@ -232,11 +244,8 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep": {
-						"value": "[parameters('B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep')]"
-					},
-					"B21001_Yearly_Trigger_properties_typeProperties_scope": {
-						"value": "[parameters('B21001_Yearly_Trigger_properties_typeProperties_scope')]"
+					"B21001_CongDist_Yearly_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('B21001_CongDist_Yearly_trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
@@ -257,6 +266,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep": {
+						"value": "[parameters('B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep')]"
+					},
+					"B21001_Yearly_Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('B21001_Yearly_Trigger_properties_typeProperties_scope')]"
+					},
+					"B21100_CongDist_Yearly_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('B21100_CongDist_Yearly_trigger_properties_typeProperties_scope')]"
 					},
 					"B21100_Yearly_Trigger_properties_B21100_parameters_FileName": {
 						"value": "[parameters('B21100_Yearly_Trigger_properties_B21100_parameters_FileName')]"
@@ -293,6 +311,9 @@
 					},
 					"S1201_Yearly_Trigger_properties_typeProperties_scope": {
 						"value": "[parameters('S1201_Yearly_Trigger_properties_typeProperties_scope')]"
+					},
+					"S2101_CongDist_Yearly_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('S2101_CongDist_Yearly_trigger_properties_typeProperties_scope')]"
 					},
 					"S2101_Yearly_Trigger_properties_S2101_parameters_Filenamep": {
 						"value": "[parameters('S2101_Yearly_Trigger_properties_S2101_parameters_Filenamep')]"

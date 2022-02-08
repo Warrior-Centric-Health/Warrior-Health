@@ -7,11 +7,7 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "WCH-ADF-DEV"
 		},
-		"B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep": {
-			"type": "string",
-			"defaultValue": "triggerBody().fileName"
-		},
-		"B21001_Yearly_Trigger_properties_typeProperties_scope": {
+		"B21001_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		}
@@ -6635,7 +6631,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/B21001_Yearly_Trigger')]",
+			"name": "[concat(parameters('factoryName'), '/B21001_CongDist_Yearly_trigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -6644,20 +6640,18 @@
 				"pipelines": [
 					{
 						"pipelineReference": {
-							"referenceName": "B21001",
+							"referenceName": "B21001_Cong_Dist",
 							"type": "PipelineReference"
 						},
-						"parameters": {
-							"Filenamep": "[parameters('B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep')]"
-						}
+						"parameters": {}
 					}
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/data/blobs/Files/B21001/Year/2019",
+					"blobPathBeginsWith": "/data/blobs/Files/Congressional_District/B21001",
 					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('B21001_Yearly_Trigger_properties_typeProperties_scope')]",
+					"scope": "[parameters('B21001_CongDist_Yearly_trigger_properties_typeProperties_scope')]",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]
