@@ -1051,20 +1051,6 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Info",
-									"enableReliableLogging": true
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "Cencus_Blob_Input_Ls",
-										"type": "LinkedServiceReference"
-									},
-									"path": "cencus"
-								}
-							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -1467,8 +1453,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21100_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/B21100_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -1516,20 +1501,6 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Info",
-									"enableReliableLogging": true
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "Cencus_Blob_Input_Ls",
-										"type": "LinkedServiceReference"
-									},
-									"path": "cencus"
-								}
-							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -1871,8 +1842,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21100_Congdist_IP_ds')]",
 				"[concat(variables('factoryId'), '/datasets/B21100_Congdist_OP_ds')]",
-				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -3729,20 +3699,6 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Warning",
-									"enableReliableLogging": true
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "Cencus_Blob_Input_Ls",
-										"type": "LinkedServiceReference"
-									},
-									"path": "cencus"
-								}
-							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -3984,8 +3940,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/GDX_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/GDX_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -4756,20 +4711,6 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Info",
-									"enableReliableLogging": true
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "Cencus_Blob_Input_Ls",
-										"type": "LinkedServiceReference"
-									},
-									"path": "cencus"
-								}
-							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -5003,8 +4944,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/METADATA_S1201_MARTIAL_STATUS_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/METADATA_S1201_MARTIAL_STATUS_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -7148,20 +7088,6 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Info",
-									"enableReliableLogging": true
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "Cencus_Blob_Input_Ls",
-										"type": "LinkedServiceReference"
-									},
-									"path": "cencus"
-								}
-							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -7503,8 +7429,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S2101_Congdist_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/S2101_Congdist_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -9166,20 +9091,6 @@
 								"type": "SqlDWSink"
 							},
 							"enableStaging": false,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Info",
-									"enableReliableLogging": true
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "Cencus_Blob_Input_Ls",
-										"type": "LinkedServiceReference"
-									},
-									"path": "cencus"
-								}
-							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -9387,8 +9298,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
 				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_IP_DS')]",
-				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_OP_DS')]"
 			]
 		},
 		{
@@ -10281,20 +10191,6 @@
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Info",
-									"enableReliableLogging": true
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "Cencus_Blob_Input_Ls",
-										"type": "LinkedServiceReference"
-									},
-									"path": "cencus"
-								}
-							},
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
@@ -10728,8 +10624,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USPS_ZIPCODE_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/USPS_ZIPCODE_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
