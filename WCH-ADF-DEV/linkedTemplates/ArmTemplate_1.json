@@ -13,145 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/B21100_OP_DS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_WCH_DEV",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlDWTable",
-				"schema": [
-					{
-						"name": "GEO_ID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "NAME",
-						"type": "nvarchar"
-					},
-					{
-						"name": "TV_WOSCD",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_WSCD",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_PER_SCD10",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_PER_SCD10TO20",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_PER_SCD30or40",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_PER_SCD50or60",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_PER_SCD70P",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "TV_SCDNOT",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "State_Code",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "County_Code",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "Tract_Code",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "B21100_Year",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "State_Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "County_Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "Tract_Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "FileSourceName ",
-						"type": "nvarchar"
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "AL_B21100"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CHR_IP_DS')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "Cencus_Blob_Input_Ls",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"FileName": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@dataset().FileName",
-							"type": "Expression"
-						},
-						"folderPath": "Files/CHR/Year/2019",
-						"container": "data"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/CHR_OP_DS')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -989,6 +850,52 @@
 						"type": "AzureBlobStorageLocation",
 						"fileName": "Metadata_FOIA_VHA_08_11_2019.csv",
 						"folderPath": "Metadata_CencusData/FOIA VHA",
+						"container": "cencusdata"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Metadata_FOIAVHA_OP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "M_FOIA_VHA"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Metadata_GDX_IP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cencus_Blob_Input_Ls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Metadata_GDX_08_11_2019.csv",
+						"folderPath": "Metadata_CencusData/GDX",
 						"container": "cencusdata"
 					},
 					"columnDelimiter": ",",

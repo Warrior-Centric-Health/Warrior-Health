@@ -11,12 +11,6 @@
 		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
 			"value": "SEC-DEV-DB"
 		},
-		"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
-			"value": "KV-BLOB-SAS-SECRET"
-		},
-		"LS_KV_BLOB_properties_typeProperties_baseUrl": {
-			"value": "https://KV-DEVBLOB.vault.azure.net/"
-		},
 		"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
 			"value": "https://KV-DEV-BLOB-SAS.vault.azure.net/"
 		},

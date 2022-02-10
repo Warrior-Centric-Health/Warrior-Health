@@ -15,14 +15,6 @@
 			"type": "string",
 			"defaultValue": "SEC-DEV-DB"
 		},
-		"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
-			"type": "string",
-			"defaultValue": "KV-BLOB-SAS-SECRET"
-		},
-		"LS_KV_BLOB_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://KV-DEVBLOB.vault.azure.net/"
-		},
 		"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://KV-DEV-BLOB-SAS.vault.azure.net/"
@@ -142,9 +134,6 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"LS_KV_BLOB_properties_typeProperties_baseUrl": {
-						"value": "[parameters('LS_KV_BLOB_properties_typeProperties_baseUrl')]"
-					},
 					"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LS_KV_BLOB_SAS_properties_typeProperties_baseUrl')]"
 					},
@@ -159,9 +148,6 @@
 					},
 					"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('Cencus_Output_Ls_properties_typeProperties_connectionString_secretName')]"
-					},
-					"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
-						"value": "[parameters('LS_BLOB_SAS_properties_typeProperties_sasUri_secretName')]"
 					},
 					"LS_WCH_DEV_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('LS_WCH_DEV_properties_typeProperties_connectionString_secretName')]"
@@ -246,6 +232,15 @@
 					},
 					"B21001_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 						"value": "[parameters('B21001_CongDist_Yearly_trigger_properties_typeProperties_scope')]"
+					},
+					"B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep": {
+						"value": "[parameters('B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep')]"
+					},
+					"B21001_Yearly_Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('B21001_Yearly_Trigger_properties_typeProperties_scope')]"
+					},
+					"B21100_CongDist_Yearly_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('B21100_CongDist_Yearly_trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
@@ -266,15 +261,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep": {
-						"value": "[parameters('B21001_Yearly_Trigger_properties_B21001_parameters_Filenamep')]"
-					},
-					"B21001_Yearly_Trigger_properties_typeProperties_scope": {
-						"value": "[parameters('B21001_Yearly_Trigger_properties_typeProperties_scope')]"
-					},
-					"B21100_CongDist_Yearly_trigger_properties_typeProperties_scope": {
-						"value": "[parameters('B21100_CongDist_Yearly_trigger_properties_typeProperties_scope')]"
 					},
 					"B21100_Yearly_Trigger_properties_B21100_parameters_FileName": {
 						"value": "[parameters('B21100_Yearly_Trigger_properties_B21100_parameters_FileName')]"
