@@ -11,10 +11,6 @@
 			"type": "string",
 			"defaultValue": "https://KV-DEV-BLOB-SAS.vault.azure.net/"
 		},
-		"LS_KV_DB_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://KV-DEV-DB.vault.azure.net/"
-		},
 		"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://KV-WCH-DEV-DB.vault.azure.net/"
@@ -22,10 +18,6 @@
 		"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
 			"type": "string",
 			"defaultValue": "KV-BLOB-SAS-SECRET"
-		},
-		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "SEC-DEV-DB"
 		},
 		"LS_WCH_DEV_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
@@ -45,19 +37,6 @@
 				"type": "AzureKeyVault",
 				"typeProperties": {
 					"baseUrl": "[parameters('LS_KV_BLOB_SAS_properties_typeProperties_baseUrl')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_KV_DB')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureKeyVault",
-				"typeProperties": {
-					"baseUrl": "[parameters('LS_KV_DB_properties_typeProperties_baseUrl')]"
 				}
 			},
 			"dependsOn": []
@@ -95,28 +74,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_KV_BLOB_SAS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Cencus_Output_Ls')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDW",
-				"typeProperties": {
-					"connectionString": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "LS_KV_DB",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "[parameters('Cencus_Output_Ls_properties_typeProperties_connectionString_secretName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_KV_DB')]"
 			]
 		},
 		{
@@ -942,6 +899,56 @@
 						},
 						"folderPath": "Files/CHR/Year/2019",
 						"container": "data"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/CHR_OP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "CHR"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/County_Ref_IP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cencus_Blob_Input_Ls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "County_Ref.csv",
+						"folderPath": "Reference_TableData",
+						"container": "cencusdata"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",

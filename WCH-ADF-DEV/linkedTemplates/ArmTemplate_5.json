@@ -7,22 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "WCH-ADF-DEV"
 		},
-		"B21100_Yearly_Trigger_properties_B21100_parameters_FileName": {
-			"type": "string",
-			"defaultValue": "triggerBody().fileName"
-		},
-		"B21100_Yearly_Trigger_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
-		},
-		"CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep": {
-			"type": "string",
-			"defaultValue": "triggerBody().fileName"
-		},
-		"CHR_Yearly_Trigger_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
-		},
 		"FOIA_VHA Yearly Trigger_properties_FOIA VHA_parameters_Filenamep": {
 			"type": "string",
 			"defaultValue": "triggerBody().fileName"
@@ -72,68 +56,6 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/B21100_Yearly_Trigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "B21100",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"FileName": "[parameters('B21100_Yearly_Trigger_properties_B21100_parameters_FileName')]"
-						}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/data/blobs/Files/B21100/Year/2019",
-					"blobPathEndsWith": ".txt",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('B21100_Yearly_Trigger_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CHR_Yearly_Trigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "CHR",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"Filenamep": "[parameters('CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep')]"
-						}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/data/blobs/Files/CHR/Year/2019/",
-					"blobPathEndsWith": ".csv",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('CHR_Yearly_Trigger_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": []
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/FOIA_VHA Yearly Trigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",

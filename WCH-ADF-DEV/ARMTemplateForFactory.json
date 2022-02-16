@@ -11,17 +11,9 @@
 			"type": "string",
 			"defaultValue": "KV-BLOB-SAS-SECRET"
 		},
-		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "SEC-DEV-DB"
-		},
 		"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://KV-DEV-BLOB-SAS.vault.azure.net/"
-		},
-		"LS_KV_DB_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://KV-DEV-DB.vault.azure.net/"
 		},
 		"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -14320,28 +14312,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Cencus_Output_Ls')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDW",
-				"typeProperties": {
-					"connectionString": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "LS_KV_DB",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "[parameters('Cencus_Output_Ls_properties_typeProperties_connectionString_secretName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/LS_KV_DB')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/LS_KV_BLOB_SAS')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -14350,19 +14320,6 @@
 				"type": "AzureKeyVault",
 				"typeProperties": {
 					"baseUrl": "[parameters('LS_KV_BLOB_SAS_properties_typeProperties_baseUrl')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_KV_DB')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureKeyVault",
-				"typeProperties": {
-					"baseUrl": "[parameters('LS_KV_DB_properties_typeProperties_baseUrl')]"
 				}
 			},
 			"dependsOn": []

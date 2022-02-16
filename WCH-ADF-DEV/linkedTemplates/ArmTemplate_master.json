@@ -11,17 +11,9 @@
 			"type": "string",
 			"defaultValue": "KV-BLOB-SAS-SECRET"
 		},
-		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
-			"type": "string",
-			"defaultValue": "SEC-DEV-DB"
-		},
 		"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://KV-DEV-BLOB-SAS.vault.azure.net/"
-		},
-		"LS_KV_DB_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://KV-DEV-DB.vault.azure.net/"
 		},
 		"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -137,17 +129,11 @@
 					"LS_KV_BLOB_SAS_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LS_KV_BLOB_SAS_properties_typeProperties_baseUrl')]"
 					},
-					"LS_KV_DB_properties_typeProperties_baseUrl": {
-						"value": "[parameters('LS_KV_DB_properties_typeProperties_baseUrl')]"
-					},
 					"LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl": {
 						"value": "[parameters('LS_KV_WCH_DEV_DB_properties_typeProperties_baseUrl')]"
 					},
 					"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
 						"value": "[parameters('Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName')]"
-					},
-					"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
-						"value": "[parameters('Cencus_Output_Ls_properties_typeProperties_connectionString_secretName')]"
 					},
 					"LS_WCH_DEV_properties_typeProperties_connectionString_secretName": {
 						"value": "[parameters('LS_WCH_DEV_properties_typeProperties_connectionString_secretName')]"
@@ -241,6 +227,18 @@
 					},
 					"B21100_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 						"value": "[parameters('B21100_CongDist_Yearly_trigger_properties_typeProperties_scope')]"
+					},
+					"B21100_Yearly_Trigger_properties_B21100_parameters_FileName": {
+						"value": "[parameters('B21100_Yearly_Trigger_properties_B21100_parameters_FileName')]"
+					},
+					"B21100_Yearly_Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('B21100_Yearly_Trigger_properties_typeProperties_scope')]"
+					},
+					"CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep": {
+						"value": "[parameters('CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep')]"
+					},
+					"CHR_Yearly_Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('CHR_Yearly_Trigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
@@ -261,18 +259,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"B21100_Yearly_Trigger_properties_B21100_parameters_FileName": {
-						"value": "[parameters('B21100_Yearly_Trigger_properties_B21100_parameters_FileName')]"
-					},
-					"B21100_Yearly_Trigger_properties_typeProperties_scope": {
-						"value": "[parameters('B21100_Yearly_Trigger_properties_typeProperties_scope')]"
-					},
-					"CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep": {
-						"value": "[parameters('CHR_Yearly_Trigger_properties_CHR_parameters_Filenamep')]"
-					},
-					"CHR_Yearly_Trigger_properties_typeProperties_scope": {
-						"value": "[parameters('CHR_Yearly_Trigger_properties_typeProperties_scope')]"
 					},
 					"FOIA_VHA Yearly Trigger_properties_FOIA VHA_parameters_Filenamep": {
 						"value": "[parameters('FOIA_VHA Yearly Trigger_properties_FOIA VHA_parameters_Filenamep')]"
