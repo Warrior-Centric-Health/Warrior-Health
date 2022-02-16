@@ -242,7 +242,7 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "Cencus_Output_Ls",
+					"referenceName": "LS_WCH_DEV",
 					"type": "LinkedServiceReference"
 				}
 			},
