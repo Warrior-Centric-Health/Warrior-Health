@@ -2401,7 +2401,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -2451,7 +2451,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/County_Ref_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/County_Ref_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -2699,7 +2699,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -2749,7 +2749,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Tract_Ref_IP_Ds')]",
 				"[concat(variables('factoryId'), '/datasets/Tract_Ref_Op_Ds')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -5972,7 +5972,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -6019,7 +6019,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_URBAN_RURAL_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/Metadata_URBAN_RURAL_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -7672,7 +7672,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -7719,7 +7719,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/URBAN_RURAL_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/URBAN_RURAL_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -8038,7 +8038,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -8087,7 +8087,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_B21100_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/USCB_B21100_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -8341,7 +8341,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					}
@@ -8359,7 +8359,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21001_Metadata_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/B21001_Metadata_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -8584,7 +8584,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -8631,7 +8631,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21100_Metadata_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/B21100_Metadata_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -8856,7 +8856,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -8903,7 +8903,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S2101_Metadata_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/S2101_Metadata_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -9840,7 +9840,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -9889,7 +9889,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_S2101_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/USCB_S2101_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
@@ -10098,7 +10098,7 @@
 							}
 						},
 						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
+							"referenceName": "LS_WCH_DEV",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -10145,7 +10145,7 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_State_Ref_Input')]",
 				"[concat(variables('factoryId'), '/datasets/USCB_State_Ref_Output')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
 			]
 		},
 		{
