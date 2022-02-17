@@ -28,7 +28,7 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"preCopyScript": "\n",
+						"preCopyScript": "truncate table Hospital_Facility\n",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -301,18 +301,6 @@
 									"name": "Year",
 									"type": "Int32",
 									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "COUNTYFIPS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "County_Code",
-									"type": "String",
-									"physicalType": "nvarchar"
 								}
 							}
 						],
