@@ -308,7 +308,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://prod-10.northcentralus.logic.azure.com:443/workflows/9579b5105bb2494eb35fc128d2eb6517/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=w0h60ol0DAeR2lDkwKPJUr5VFL6EGd-CTb0Nfj3oHgs",
+					"url": {
+						"value": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+						"type": "Expression"
+					},
 					"method": "POST",
 					"body": {
 						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('CHR_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
