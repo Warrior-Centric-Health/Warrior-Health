@@ -37,7 +37,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "X",
+									"name": "LONGITUDE",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -51,7 +51,7 @@
 							},
 							{
 								"source": {
-									"name": "Y",
+									"name": "LATITUDE",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -301,6 +301,18 @@
 									"name": "Year",
 									"type": "Int32",
 									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "COUNTYFIPS",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County_Code",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
 						],
