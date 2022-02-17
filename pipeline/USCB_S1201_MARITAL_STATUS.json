@@ -337,7 +337,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@pipeline().parameters.FileName",
+								"value": "@pipeline().parameters.FileNamePL",
 								"type": "Expression"
 							}
 						}
@@ -352,7 +352,7 @@
 			}
 		],
 		"parameters": {
-			"FileName": {
+			"FileNamePL": {
 				"type": "string"
 			}
 		},
