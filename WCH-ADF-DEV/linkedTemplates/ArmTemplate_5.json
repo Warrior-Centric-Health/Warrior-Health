@@ -15,7 +15,7 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
-		"GDX_Yearly_Trigger_properties_GDX_parameters_FileName": {
+		"GDX_Yearly_Trigger_properties_GDX_parameters_FileNamePL": {
 			"type": "string",
 			"defaultValue": "triggerBody().fileName"
 		},
@@ -31,7 +31,7 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
-		"S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileName": {
+		"S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileNamePL": {
 			"type": "string",
 			"defaultValue": "triggerBody().fileName"
 		},
@@ -101,7 +101,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"FileName": "[parameters('GDX_Yearly_Trigger_properties_GDX_parameters_FileName')]"
+							"FileNamePL": "[parameters('GDX_Yearly_Trigger_properties_GDX_parameters_FileNamePL')]"
 						}
 					}
 				],
@@ -163,7 +163,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"FileName": "[parameters('S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileName')]"
+							"FileNamePL": "[parameters('S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileNamePL')]"
 						}
 					}
 				],

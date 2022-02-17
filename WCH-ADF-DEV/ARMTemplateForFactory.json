@@ -39,7 +39,7 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
-		"B21100_Yearly_Trigger_properties_B21100_parameters_FileName": {
+		"B21100_Yearly_Trigger_properties_B21100_parameters_FileNamePL": {
 			"type": "string",
 			"defaultValue": "triggerBody().fileName"
 		},
@@ -63,7 +63,7 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
-		"GDX_Yearly_Trigger_properties_GDX_parameters_FileName": {
+		"GDX_Yearly_Trigger_properties_GDX_parameters_FileNamePL": {
 			"type": "string",
 			"defaultValue": "triggerBody().fileName"
 		},
@@ -79,7 +79,7 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
-		"S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileName": {
+		"S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileNamePL": {
 			"type": "string",
 			"defaultValue": "triggerBody().fileName"
 		},
@@ -1268,7 +1268,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"FileName": {
-										"value": "@pipeline().parameters.FileName",
+										"value": "@pipeline().parameters.FileNamePL",
 										"type": "Expression"
 									}
 								}
@@ -1424,7 +1424,7 @@
 					"cancelAfter": {}
 				},
 				"parameters": {
-					"FileName": {
+					"FileNamePL": {
 						"type": "string"
 					}
 				},
@@ -3761,7 +3761,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"FileName": {
-										"value": "@pipeline().parameters.FileName",
+										"value": "@pipeline().parameters.FileNamePL",
 										"type": "Expression"
 									}
 								}
@@ -3914,7 +3914,7 @@
 					"cancelAfter": {}
 				},
 				"parameters": {
-					"FileName": {
+					"FileNamePL": {
 						"type": "string"
 					}
 				},
@@ -9243,7 +9243,7 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"FileName": {
-										"value": "@pipeline().parameters.FileName",
+										"value": "@pipeline().parameters.FileNamePL",
 										"type": "Expression"
 									}
 								}
@@ -9263,7 +9263,7 @@
 					"cancelAfter": {}
 				},
 				"parameters": {
-					"FileName": {
+					"FileNamePL": {
 						"type": "string"
 					}
 				},
@@ -14471,7 +14471,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"FileName": "[parameters('B21100_Yearly_Trigger_properties_B21100_parameters_FileName')]"
+							"FileNamePL": "[parameters('B21100_Yearly_Trigger_properties_B21100_parameters_FileNamePL')]"
 						}
 					}
 				],
@@ -14570,7 +14570,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"FileName": "[parameters('GDX_Yearly_Trigger_properties_GDX_parameters_FileName')]"
+							"FileNamePL": "[parameters('GDX_Yearly_Trigger_properties_GDX_parameters_FileNamePL')]"
 						}
 					}
 				],
@@ -14636,7 +14636,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"FileName": "[parameters('S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileName')]"
+							"FileNamePL": "[parameters('S1201_Yearly_Trigger_properties_USCB_S1201_MARITAL_STATUS_parameters_FileNamePL')]"
 						}
 					}
 				],
