@@ -840,7 +840,12 @@
 							{
 								"referenceName": "B21001_IP_Congrs_DS",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"FileName": {
+										"value": "@pipeline().parameters.FileNamePL",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
@@ -991,6 +996,11 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"FileNamePL": {
+						"type": "string"
+					}
 				},
 				"folder": {
 					"name": "USCB"
@@ -1671,7 +1681,12 @@
 							{
 								"referenceName": "B21100_Congdist_IP_ds",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"FileName": {
+										"value": "@pipeline().parameters.FileNamePL",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
@@ -1822,6 +1837,11 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"FileNamePL": {
+						"type": "string"
+					}
 				},
 				"folder": {
 					"name": "USCB"
@@ -3940,7 +3960,7 @@
 							},
 							"sink": {
 								"type": "SqlDWSink",
-								"preCopyScript": "\n",
+								"preCopyScript": "truncate table Hospital_Facility\n",
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
@@ -3949,7 +3969,7 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "X",
+											"name": "LONGITUDE",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -3963,7 +3983,7 @@
 									},
 									{
 										"source": {
-											"name": "Y",
+											"name": "LATITUDE",
 											"type": "String",
 											"physicalType": "String"
 										},

@@ -39,6 +39,10 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
 		},
+		"S2101_CongDist_Yearly_trigger_properties_S2101_Cong_Dist_parameters_Filenamep": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
 		"S2101_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
@@ -193,7 +197,9 @@
 							"referenceName": "S2101_Cong_Dist",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"Filenamep": "[parameters('S2101_CongDist_Yearly_trigger_properties_S2101_Cong_Dist_parameters_Filenamep')]"
+						}
 					}
 				],
 				"type": "BlobEventsTrigger",

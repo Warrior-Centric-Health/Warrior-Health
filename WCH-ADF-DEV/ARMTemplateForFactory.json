@@ -23,6 +23,10 @@
 			"type": "string",
 			"defaultValue": "KV-WCH-DEV-SECREATE"
 		},
+		"B21001_CongDist_Yearly_trigger_properties_B21001_Cong_Dist_parameters_FileNamePL": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
+		},
 		"B21001_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
@@ -34,6 +38,10 @@
 		"B21001_Yearly_Trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"B21100_CongDist_Yearly_trigger_properties_B21100_Cong_Dist_parameters_FileNamePL": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
 		},
 		"B21100_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 			"type": "string",
@@ -86,6 +94,10 @@
 		"S1201_Yearly_Trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw"
+		},
+		"S2101_CongDist_Yearly_trigger_properties_S2101_Cong_Dist_parameters_Filenamep": {
+			"type": "string",
+			"defaultValue": "triggerBody().fileName"
 		},
 		"S2101_CongDist_Yearly_trigger_properties_typeProperties_scope": {
 			"type": "string",
@@ -826,7 +838,12 @@
 							{
 								"referenceName": "B21001_IP_Congrs_DS",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"FileName": {
+										"value": "@pipeline().parameters.FileNamePL",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
@@ -977,6 +994,11 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"FileNamePL": {
+						"type": "string"
+					}
 				},
 				"folder": {
 					"name": "USCB"
@@ -1665,7 +1687,12 @@
 							{
 								"referenceName": "B21100_Congdist_IP_ds",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"FileName": {
+										"value": "@pipeline().parameters.FileNamePL",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
@@ -1816,6 +1843,11 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"FileNamePL": {
+						"type": "string"
+					}
 				},
 				"folder": {
 					"name": "USCB"
@@ -3962,7 +3994,7 @@
 							},
 							"sink": {
 								"type": "SqlDWSink",
-								"preCopyScript": "\n",
+								"preCopyScript": "truncate table Hospital_Facility\n",
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
@@ -3971,7 +4003,7 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "X",
+											"name": "LONGITUDE",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -3985,7 +4017,7 @@
 									},
 									{
 										"source": {
-											"name": "Y",
+											"name": "LATITUDE",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -7255,7 +7287,12 @@
 							{
 								"referenceName": "S2101_Congdist_IP_DS",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"FileName": {
+										"value": "@pipeline().parameters.Filenamep",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
@@ -7406,6 +7443,11 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"parameters": {
+					"Filenamep": {
+						"type": "string"
+					}
 				},
 				"folder": {
 					"name": "USCB"
@@ -11250,11 +11292,20 @@
 					"referenceName": "Cencus_Blob_Input_Ls",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"FileName": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						},
 						"folderPath": "Files/Congressional_District/B21001",
 						"container": "data"
 					},
@@ -11407,11 +11458,20 @@
 					"referenceName": "Cencus_Blob_Input_Ls",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"FileName": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						},
 						"folderPath": "Files/Congressional_District/B21100",
 						"container": "data"
 					},
@@ -13032,11 +13092,20 @@
 					"referenceName": "Cencus_Blob_Input_Ls",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"FileName": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().FileName",
+							"type": "Expression"
+						},
 						"folderPath": "Files/Congressional_District",
 						"container": "data"
 					},
@@ -14375,7 +14444,9 @@
 							"referenceName": "B21001_Cong_Dist",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"FileNamePL": "[parameters('B21001_CongDist_Yearly_trigger_properties_B21001_Cong_Dist_parameters_FileNamePL')]"
+						}
 					}
 				],
 				"type": "BlobEventsTrigger",
@@ -14439,7 +14510,9 @@
 							"referenceName": "B21100_Cong_Dist",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"FileNamePL": "[parameters('B21100_CongDist_Yearly_trigger_properties_B21100_Cong_Dist_parameters_FileNamePL')]"
+						}
 					}
 				],
 				"type": "BlobEventsTrigger",
@@ -14668,7 +14741,9 @@
 							"referenceName": "S2101_Cong_Dist",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"Filenamep": "[parameters('S2101_CongDist_Yearly_trigger_properties_S2101_Cong_Dist_parameters_Filenamep')]"
+						}
 					}
 				],
 				"type": "BlobEventsTrigger",
