@@ -8,6 +8,9 @@
 				"pipelineReference": {
 					"referenceName": "S2101_Cong_Dist",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Filenamep": "triggerBody().fileName"
 				}
 			}
 		],
