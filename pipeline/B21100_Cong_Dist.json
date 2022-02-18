@@ -220,7 +220,13 @@
 				"inputs": [
 					{
 						"referenceName": "B21100_Congdist_IP_ds",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.FileNamePL",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -366,6 +372,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"FileNamePL": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "USCB"
 		},
