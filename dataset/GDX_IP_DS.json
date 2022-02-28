@@ -5,12 +5,21 @@
 			"referenceName": "Cencus_Blob_Input_Ls",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "GDX_08-11-2019_lat1.csv",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": "Files/GDX/Year/2019",
 				"container": "data"
 			},
 			"columnDelimiter": ",",
@@ -18,72 +27,7 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": [
-			{
-				"name": "State Name",
-				"type": "String"
-			},
-			{
-				"name": "County Name",
-				"type": "String"
-			},
-			{
-				"name": "State_Code",
-				"type": "String"
-			},
-			{
-				"name": "State_Abbr",
-				"type": "String"
-			},
-			{
-				"name": "County_Code",
-				"type": "String"
-			},
-			{
-				"name": "Veteran Population*",
-				"type": "String"
-			},
-			{
-				"name": "Total Expenditure",
-				"type": "String"
-			},
-			{
-				"name": "Compensation & Pension",
-				"type": "String"
-			},
-			{
-				"name": "Construction",
-				"type": "String"
-			},
-			{
-				"name": "Education & Vocational Rehabilitation/ Employment",
-				"type": "String"
-			},
-			{
-				"name": "Loan Guaranty#",
-				"type": "String"
-			},
-			{
-				"name": "General Operating Expenses",
-				"type": "String"
-			},
-			{
-				"name": "Insurance & Indemnities",
-				"type": "String"
-			},
-			{
-				"name": "Medical Care",
-				"type": "String"
-			},
-			{
-				"name": "Unique Patients**",
-				"type": "String"
-			},
-			{
-				"name": "Year",
-				"type": "String"
-			}
-		]
+		"schema": []
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
 }
