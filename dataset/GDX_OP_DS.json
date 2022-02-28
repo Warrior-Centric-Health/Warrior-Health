@@ -7,10 +7,44 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlDWTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "State_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TV_VHA_GDX_RPT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TV_USING_VHA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County_Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State_Abbr",
+				"type": "nvarchar"
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "GDX"
+			"table": "GDX_Back"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
