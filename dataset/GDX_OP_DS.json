@@ -30,13 +30,12 @@
 				"precision": 10
 			},
 			{
-				"name": "State_Abbr",
+				"name": "County_Code",
 				"type": "nvarchar"
 			},
 			{
-				"name": "County_Code",
-				"type": "int",
-				"precision": 10
+				"name": "State_Abbr",
+				"type": "nvarchar"
 			},
 			{
 				"name": "State_Code",
@@ -46,7 +45,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "GDX_Back"
+			"table": "GDX"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
