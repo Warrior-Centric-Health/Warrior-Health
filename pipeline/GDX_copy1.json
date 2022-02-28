@@ -36,7 +36,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "State Name0",
+									"name": "State Name",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -48,7 +48,7 @@
 							},
 							{
 								"source": {
-									"name": "County Name1",
+									"name": "County Name",
 									"type": "String",
 									"physicalType": "String"
 								},

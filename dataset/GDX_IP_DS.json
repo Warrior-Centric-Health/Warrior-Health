@@ -20,15 +20,11 @@
 		},
 		"schema": [
 			{
-				"name": "State Name0",
+				"name": "State Name",
 				"type": "String"
 			},
 			{
-				"name": "County Name1",
-				"type": "String"
-			},
-			{
-				"name": "State Name2",
+				"name": "County Name",
 				"type": "String"
 			},
 			{
@@ -37,10 +33,6 @@
 			},
 			{
 				"name": "State_Abbr",
-				"type": "String"
-			},
-			{
-				"name": "County Name5",
 				"type": "String"
 			},
 			{

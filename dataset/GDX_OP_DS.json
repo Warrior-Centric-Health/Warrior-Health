@@ -30,16 +30,18 @@
 				"precision": 10
 			},
 			{
-				"name": "State_Code",
+				"name": "State_Abbr",
 				"type": "nvarchar"
 			},
 			{
 				"name": "County_Code",
-				"type": "nvarchar"
+				"type": "int",
+				"precision": 10
 			},
 			{
-				"name": "State_Abbr",
-				"type": "nvarchar"
+				"name": "State_Code",
+				"type": "int",
+				"precision": 10
 			}
 		],
 		"typeProperties": {
