@@ -41,8 +41,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Nate Reference Name",
-									"type": "String",
+									"name": "NateReference_Name",
 									"physicalType": "nvarchar"
 								}
 							},
@@ -53,8 +52,7 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Percentage Factor Applicable",
-									"type": "String",
+									"name": "Percentage_Factor_Applicable",
 									"physicalType": "nvarchar"
 								}
 							},
