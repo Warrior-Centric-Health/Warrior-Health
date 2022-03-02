@@ -710,7 +710,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "LGBTQ_Ref"
+					"table": "Crosstable_Ref"
 				}
 			},
 			"dependsOn": []

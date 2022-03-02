@@ -4490,7 +4490,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "NateReference_Name",
+											"name": "Nate_Reference_Name",
 											"physicalType": "nvarchar"
 										}
 									},
@@ -12686,7 +12686,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "LGBTQ_Ref"
+					"table": "Crosstable_Ref"
 				}
 			},
 			"dependsOn": [

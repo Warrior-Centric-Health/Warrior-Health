@@ -4452,7 +4452,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "NateReference_Name",
+											"name": "Nate_Reference_Name",
 											"physicalType": "nvarchar"
 										}
 									},
